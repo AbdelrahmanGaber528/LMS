@@ -1,6 +1,4 @@
-package com.librarysystem.manager;
-
-import java.util.List;
+package com.librarysystem.util;
 
 public class FileManager {
     public static void writeInFile(){};
