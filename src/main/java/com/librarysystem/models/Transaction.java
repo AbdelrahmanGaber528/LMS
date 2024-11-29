@@ -2,7 +2,6 @@ package com.librarysystem.models;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 public class Transaction {
     private int transactionId = 10;
@@ -12,7 +11,6 @@ public class Transaction {
     private Book bookId;
     private final LocalDateTime transactionTime;
     private String transactionType; // "Borrow" or "Return"
-
 
     public Transaction(Patron patron, Librarian librarian, double totalAmount) {
         this.transactionId++;
@@ -31,12 +29,10 @@ public class Transaction {
     public String  getPatronName() { return this.patron.getUserName(); }
     public String getLibrarianName(){ return this.librarian.getUserName();}
 
-
     public String getTransactionTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         return transactionTime.format(formatter);
     }
     public String getType() { return transactionType; }
     public void setType(String transactionType) { this.transactionType = transactionType; }
-
 }
