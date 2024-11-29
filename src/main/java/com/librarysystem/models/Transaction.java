@@ -8,8 +8,8 @@ public class Transaction {
     private int transactionId = 10;
     private final Patron patron;  // Reference to Patron
     private final Librarian librarian;  // Reference to Librarian
-    private double totalAmount;
-    private String bookId;
+    private double totalAmount ;
+    private Book bookId;
     private final LocalDateTime transactionTime;
     private String transactionType; // "Borrow" or "Return"
 
@@ -22,6 +22,8 @@ public class Transaction {
         this.transactionTime = LocalDateTime.now(); // Set the current date and time
     }
 
+    public double getTotalAmount(){ return this.totalAmount; }
+    public void setTotalAmount(double totalAmount){ this.totalAmount = totalAmount;}
     public int getTransactionId() { return transactionId; }
 
     public int getPatronId() { return this.patron.getId(); }
@@ -29,7 +31,6 @@ public class Transaction {
     public String  getPatronName() { return this.patron.getUserName(); }
     public String getLibrarianName(){ return this.librarian.getUserName();}
 
-    public String getBookId() { return bookId; }
 
     public String getTransactionTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
