@@ -1,5 +1,8 @@
 package com.librarysystem.util;
 
+import com.librarysystem.models.Admin;
+import com.librarysystem.models.User;
+
 import java.util.List;
 
 public class LMSFileManager implements LMSFileMangerOperations {
@@ -19,8 +22,8 @@ public class LMSFileManager implements LMSFileMangerOperations {
     }
 
     @Override
-    public List<String> searchInFile(String filePath, String keyword) {
-        return List.of();
+    public User searchInFile(String filePath, String keyword) {
+        return null;
     }
 
     @Override

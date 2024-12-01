@@ -25,10 +25,10 @@ public class Transaction {
     public void setTotalAmount(double totalAmount){ this.totalAmount = totalAmount;}
     public int getTransactionId() { return transactionId; }
 
-    public int getPatronId() { return this.patron.getId(); }
-    public int getLibrarianId(){ return this.librarian.getId();}
-    public String  getPatronName() { return this.patron.getUserName(); }
-    public String getLibrarianName(){ return this.librarian.getUserName();}
+    public int getPatronId() { return this.patron.getAccountID(); }
+    public int getLibrarianId(){ return this.librarian.getAccountID();}
+    public String  getPatronName() { return this.patron.getName(); }
+    public String getLibrarianName(){ return this.librarian.getName();}
 
     public String getTransactionTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

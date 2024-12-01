@@ -1,8 +1,6 @@
 package com.librarysystem.models;
 
-import com.librarysystem.service.UserService;
-
-public abstract class User implements UserService {
+public  class User{
 
     private String name ;
     private String contact ;
@@ -17,6 +15,9 @@ public abstract class User implements UserService {
         this.account = new Account("User","0000",role);
     }
 
+    public int getAccountID(){
+        return this.account.getAccountID();
+    }
 
     public String getName() {
         return name;
