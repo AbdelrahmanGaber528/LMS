@@ -4,30 +4,26 @@ import com.librarysystem.service.UserService;
 
 public abstract class User implements UserService {
 
-    private String userName ;
-    private String password ;
+    private String name ;
     private String contact ;
-    private int id ;
+    private Account account ;
     private String preferences;
+    private String membershipStatus;
 
-    public int getId(){
-        return this.id;
+    public User(){}
+
+    public User(String name,String role) {
+        setName(name);
+        this.account = new Account("User","0000",role);
     }
 
-    public String getUserName() {
-        return userName;
+
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getContact() {

@@ -2,6 +2,13 @@ package com.librarysystem.models;
 
 public class Admin extends User{
 
+    public Admin(){
+        this("admin");
+    }
+    public Admin(String name){
+        super(name,"Admin");
+    }
+
     @Override
     public boolean logIn(String id, String password) {
         return false;
