@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public interface LMSFileMangerOperations {
-    public boolean readFromFile(String filePath);
     public boolean writeToFile(String filePath, List<String> lines);
+    public boolean readFromFile(String filePath);
     public boolean appendToFile(String filePath, List<String> lines);
     public User searchInFile(String filePath, String keyword);
     public void updateLineInFile(String filePath, String oldLine, String newLine);
