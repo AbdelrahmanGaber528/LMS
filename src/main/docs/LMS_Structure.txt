@@ -1,0 +1,97 @@
+
+## **1. Controllers**
+Controllers handle the business logic of your application. You’ll need different controllers for each role and feature.
+
+### **Required Controllers**
+1. **AdminController**
+   - Manage users (add/edit/delete Admin, Librarian, Patron accounts).
+   - Generate system-level reports.
+   - Interact with `AdminDAO` and `UserDAO`.
+
+2. **LibrarianController**
+   - Manage books (add/edit/delete books).
+   - Manage borrowing records.
+   - Interact with `BookDAO`, `BorrowRecordDAO`, and `UserDAO`.
+
+3. **PatronController**
+   - Handle borrowing and returning books.
+   - View borrowing history.
+   - Interact with `PatronDAO`, `BookDAO`, and `BorrowRecordDAO`.
+
+4. **LoginController**
+   - Handle user authentication using `AccountDAO`.
+   - Redirect users to role-specific controllers/views.
+
+5. **DashboardController**
+   - Display dashboard statistics (e.g., total books, borrowed books).
+   - Fetch data from `BookDAO`, `BorrowRecordDAO`, and `UserDAO`.
+
+6. **SearchController**
+   - Handle book search by title, author, or category.
+   - Interact with `BookDAO`.
+
+---
+
+## **2. DAO Classes**
+DAO classes handle data storage and retrieval. Since you’re using files, these classes will manage file I/O operations.
+
+### **Required DAO Classes**
+1. **AccountDAO**
+   - Read/write from `accounts.txt`.
+   - Authenticate users.
+   - Store shared login credentials for all roles.
+
+2. **AdminDAO**
+   - Read/write from `admins.txt`.
+   - CRUD operations for Admin users.
+
+3. **LibrarianDAO**
+   - Read/write from `librarians.txt`.
+   - CRUD operations for Librarians.
+
+4. **PatronDAO**
+   - Read/write from `patrons.txt`.
+   - Manage borrowing history and profile updates.
+
+5. **BookDAO**
+   - Read/write from `books.txt`.
+   - CRUD operations for books.
+
+6. **BorrowRecordDAO**
+   - Read/write from `borrow_records.txt`.
+   - Manage borrowing history and overdue records.
+
+---
+
+## **3. Models**
+Models represent the data entities in your project. Each model should have:
+- Fields (attributes of the entity).
+- Getters and setters.
+- Any necessary methods (e.g., for data validation or formatting).
+
+### **Required Models**
+1. **Admin**
+   - Fields: `adminId`, `username`, `password`.
+   - Methods: Getters/Setters.
+
+2. **Librarian**
+   - Fields: `librarianId`, `username`, `password`.
+   - Methods: Getters/Setters.
+
+3. **Patron**
+   - Fields: `patronId`, `username`, `password`, `borrowedBooks` (List of book IDs).
+   - Methods: Getters/Setters, borrow/return book methods.
+
+4. **Book**
+   - Fields: `bookId`, `title`, `author`, `category`, `isAvailable`.
+   - Methods: Getters/Setters.
+
+5. **BorrowRecord**
+   - Fields: `recordId`, `userId`, `bookId`, `borrowDate`, `returnDate`.
+   - Methods: Getters/Setters.
+
+6. **Account**
+   - Fields: `userId`, `username`, `password`, `role`.
+   - Methods: Getters/Setters.
+
+---

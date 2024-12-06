@@ -8,13 +8,16 @@ public  class User{
     private String preferences;
     private String membershipStatus;
 
-    public User(){}
-
+    public User(String role){
+        this("User",role);
+    }
     public User(String name,String role) {
         setName(name);
         this.account = new Account("User","0000",role);
     }
-
+    public User(String userName ,String password, String role){
+        this.account = new Account(userName,password,role);
+    }
     public int getAccountID(){
         return this.account.getAccountID();
     }
