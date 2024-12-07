@@ -6,7 +6,6 @@ public  class User{
     private String contact ;
     private final Account account ;
     private String preferences;
-    private String membershipStatus;
 
     public User(String role){
         this("User",role);

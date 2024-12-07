@@ -56,7 +56,7 @@ public class LMSFileManagerTest {
     public void testDeleteRow(){
         LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
         try{
-            fileManager.deleteRow("200");
+            fileManager.deleteRow("30");
         }catch(IOException e ){
             System.err.println("Problem in : "+ e.getMessage());
         }
