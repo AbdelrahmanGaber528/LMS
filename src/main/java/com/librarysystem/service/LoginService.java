@@ -1,4 +1,4 @@
 package com.librarysystem.service;
 
-public class AuthenticationService {
+public class LoginService {
 }
