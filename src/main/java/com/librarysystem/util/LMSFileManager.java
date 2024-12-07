@@ -3,6 +3,7 @@ package com.librarysystem.util;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -18,7 +19,7 @@ public class LMSFileManager implements LMSFileMangerOperations{
     }
 
     @Override
-    public void insertRow(String filePath, Map<ColumnName, String> row) throws IOException {
+    public void insertRow( Map<ColumnName, String> row) throws IOException {
             StringBuilder newRow = new StringBuilder();
 
             if(!new File(filePath).exists()){
@@ -26,30 +27,31 @@ public class LMSFileManager implements LMSFileMangerOperations{
             }
             else {
                 try(FileWriter writer = new FileWriter(filePath,true)){
+                    writer.write("\n");
                     for(String value : row.values())
-                        newRow.append(value).append("\t");
+                        newRow.append(value).append("\t\tgit ");
                     // Append newLine to file
                     writer.write(newRow.toString().trim());
-                    writer.flush();
+
                 }catch (IOException e ){
-                    LOGGER.log(Level.SEVERE,"Can't insert in file "+filePath , e);
+                    LOGGER.log(Level.SEVERE,"Can't insert in file " + filePath , e);
                 }
             }
     }
 
     @Override
-    public String ReadRow(String filePath) {
+    public String ReadRow() {
 
         return "";
     }
 
     @Override
-    public List<String> ReadAllRows(String filePath) {
+    public List<String> ReadAllRows() {
         return List.of();
     }
 
     @Override
-    public void deleteRow(String filePath, ColumnName id) {
+    public void deleteRow( ColumnName id) {
 
     }
 

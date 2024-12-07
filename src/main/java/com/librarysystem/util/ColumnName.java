@@ -7,5 +7,4 @@ public enum ColumnName {
     DATE_TIME ,
     BOOK_TITLE ,
     TOTAL_AMOUNT
-    
 }

@@ -7,10 +7,10 @@ import java.util.Map;
 
 public interface LMSFileMangerOperations {
 
-    public void insertRow(String filePath , Map<ColumnName , String> lines) throws IOException;
-    public String ReadRow (String filePath );
-    public List<String> ReadAllRows (String filePath);
-    public void deleteRow(String filePath , ColumnName id);
+    public void insertRow( Map<ColumnName , String> lines) throws IOException;
+    public String ReadRow ();
+    public List<String> ReadAllRows ();
+    public void deleteRow(ColumnName id);
 
 }
 //private Map<Integer, Book> booksMap = new HashMap<>();
