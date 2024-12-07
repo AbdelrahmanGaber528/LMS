@@ -4,9 +4,7 @@ import org.junit.Test;
 import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class LMSFileManagerTest {
 
@@ -25,32 +23,42 @@ public class LMSFileManagerTest {
 
     private Map<ColumnName,String> createTransactionMap(){
 
-        Map<ColumnName , String > transactionMap = new LinkedHashMap<>();
+        Map<ColumnName , String > transactionMap = new TreeMap<>();
 
         // format date into string
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
         String formattedDateTime = now.format(formatter);
-
-        transactionMap.put(ColumnName.PATRON_ACCOUNT_ID,"1");
-        transactionMap.put(ColumnName.LIBRARIAN_ACCOUNT_ID,"2");
+        transactionMap.put(ColumnName.TRANSACTION_ID,"30");
+        transactionMap.put(ColumnName.BOOK_TITLE,"what");
+        transactionMap.put(ColumnName.PATRON_ACCOUNT_ID,"10");
+        transactionMap.put(ColumnName.LIBRARIAN_ACCOUNT_ID,"12");
         transactionMap.put(ColumnName.DATE_TIME, formattedDateTime);
-        transactionMap.put(ColumnName.BOOK_TITLE,"What");
-        transactionMap.put(ColumnName.TOTAL_AMOUNT, "50");
-
+        transactionMap.put(ColumnName.TOTAL_AMOUNT, "522");
         return transactionMap;
     }
 
-    private String readTransactionRow(String filePath) throws FileNotFoundException {
+   @Test
+    public void testReadRow() throws IOException{
+        LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
+        String firstName = fileManager.readRow("23");
+       System.out.println(firstName);
+   }
+   @Test
+    public void testGetAllRows() throws IOException {
+        LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
+        ArrayList<String> rows = (ArrayList<String>) fileManager.getAllRows("11");
+       for(String row :rows)
+           System.out.println(row);
+   }
 
-        File file = new File(filePath);
-
-        try (Scanner scanner = new Scanner(file)) {
-            // Skip the first line
-            scanner.nextLine();
-
-            // Read the second line directly
-            return scanner.nextLine().trim();
+   @Test
+    public void testDeleteRow(){
+        LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
+        try{
+            fileManager.deleteRow("200");
+        }catch(IOException e ){
+            System.err.println("Problem in : "+ e.getMessage());
         }
-    }
+   }
 }

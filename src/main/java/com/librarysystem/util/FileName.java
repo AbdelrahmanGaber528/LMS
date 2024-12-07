@@ -1,7 +1,6 @@
 package com.librarysystem.util;
 
 public enum FileName {
-    TRANSACTION_ID,
     ACCOUNT_ID,
     BOOK_ID,
     BORROWED_BOOKS_ID,
