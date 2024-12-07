@@ -1,5 +1,6 @@
 package com.librarysystem.util;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -17,21 +18,22 @@ public class LMSFileManager implements LMSFileMangerOperations{
     }
 
     @Override
-    public void insertRow(String filePath, Map<ColumnName, String> lines) {
+    public void insertRow(String filePath, Map<ColumnName, String> row) throws IOException {
             StringBuilder newRow = new StringBuilder();
 
-            try(FileWriter writer = new FileWriter(filePath,true)){
-                for(String value : lines.values())
-                    newRow.append(value).append("   ");
-                // delete appendix spaces in the end
-                newRow.toString().trim();
-                newRow.append("\n"); //print NewLine
-
-                // Append newLine to file
-                writer.write(newRow.toString());
-                writer.flush();
-            }catch (IOException e ){
-                LOGGER.log(Level.SEVERE,"Can't insert in file "+filePath , e);
+            if(!new File(filePath).exists()){
+                throw new IOException("File NOT FOUND");
+            }
+            else {
+                try(FileWriter writer = new FileWriter(filePath,true)){
+                    for(String value : row.values())
+                        newRow.append(value).append("\t");
+                    // Append newLine to file
+                    writer.write(newRow.toString().trim());
+                    writer.flush();
+                }catch (IOException e ){
+                    LOGGER.log(Level.SEVERE,"Can't insert in file "+filePath , e);
+                }
             }
     }
 
