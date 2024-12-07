@@ -1,12 +1,15 @@
 package com.librarysystem.util;
 
 
-import java.util.Scanner;
+import java.util.List;
+import java.util.Map;
 
 public interface LMSFileMangerOperations {
 
-}
-//private Map<Integer, Book> booksMap = new HashMap<>();
-class Solve {
+    public void insertRow(String filePath , Map<ColumnName , String> lines);
+    public String ReadRow (String filePath );
+    public List<String> ReadAllRows (String filePath);
+    public void deleteRow(String filePath , ColumnName id);
 
 }
+//private Map<Integer, Book> booksMap = new HashMap<>();

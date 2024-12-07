@@ -1,5 +1,5 @@
 package com.librarysystem.models;
 
-public class Patron extends User{
+public class Patron {
 
 }

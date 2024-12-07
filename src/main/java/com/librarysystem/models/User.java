@@ -4,7 +4,7 @@ public  class User{
 
     private String name ;
     private String contact ;
-    private Account account ;
+    private final Account account ;
     private String preferences;
     private String membershipStatus;
 

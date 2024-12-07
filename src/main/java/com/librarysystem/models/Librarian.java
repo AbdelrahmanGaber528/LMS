@@ -1,6 +1,6 @@
 package com.librarysystem.models;
 
 
-public class Librarian  extends User{
+public class Librarian {
 
 }

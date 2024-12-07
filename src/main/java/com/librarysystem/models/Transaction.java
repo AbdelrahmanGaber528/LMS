@@ -5,11 +5,11 @@ import java.time.format.DateTimeFormatter;
 
 public class Transaction {
 
-    private int transactionId = 10;
+    private int transactionId = 0;
     private final Patron patron;  // Reference to Patron
     private final Librarian librarian;  // Reference to Librarian
     private double totalAmount ;
-    private Book bookId;
+    private Book book;
     private final LocalDateTime transactionTime;
     private String transactionType; // "Borrow" or "Return"
 
@@ -25,10 +25,10 @@ public class Transaction {
     public void setTotalAmount(double totalAmount){ this.totalAmount = totalAmount;}
     public int getTransactionId() { return transactionId; }
 
-    public int getPatronId() { return this.patron.getAccountID(); }
-    public int getLibrarianId(){ return this.librarian.getAccountID();}
-    public String  getPatronName() { return this.patron.getName(); }
-    public String getLibrarianName(){ return this.librarian.getName();}
+//    public int getPatronId() { return this.patron.getAccountID(); }
+//    public int getLibrarianId(){ return this.librarian.getAccountID();}
+//    public String  getPatronName() { return this.patron.getName(); }
+//    public String getLibrarianName(){ return this.librarian.getName();}
 
     public String getTransactionTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

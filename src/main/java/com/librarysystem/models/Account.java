@@ -1,12 +1,14 @@
 package com.librarysystem.models;
 
 public class Account {
+
     // userName password isActive
     private static int accountID = 0;
     private String userName;
     private String password;
     private String role; // Example roles: "Admin", "Patron", "Librarian"
     private boolean isActive = false;
+
     // Constructor
     public Account(String userName, String password, String role) {
         this.userName = userName;
