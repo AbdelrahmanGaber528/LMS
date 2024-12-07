@@ -29,7 +29,7 @@ public class LMSFileManager implements LMSFileMangerOperations{
                 try(FileWriter writer = new FileWriter(filePath,true)){
                     writer.write("\n");
                     for(String value : row.values())
-                        newRow.append(value).append("\t\tgit ");
+                        newRow.append(value).append("\t\t");
                     // Append newLine to file
                     writer.write(newRow.toString().trim());
 
