@@ -1,7 +1,8 @@
 package com.librarysystem.models;
 
-public  class User{
+public  abstract class User{
 
+    private static int user_id =0;
     private String name ;
     private String contact ;
     private final Account account ;
@@ -16,11 +17,14 @@ public  class User{
     }
     public User(String userName ,String password, String role){
         this.account = new Account(userName,password,role);
+        user_id ++;
     }
     public int getAccountID(){
         return this.account.getAccountID();
     }
-
+    public int getUser_id(){
+        return user_id;
+    }
     public String getName() {
         return name;
     }

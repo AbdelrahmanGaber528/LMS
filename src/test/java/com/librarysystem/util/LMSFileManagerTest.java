@@ -23,42 +23,47 @@ public class LMSFileManagerTest {
 
     private Map<ColumnName,String> createTransactionMap(){
 
-        Map<ColumnName , String > transactionMap = new TreeMap<>();
-
-        // format date into string
+        Map<ColumnName, String> transactionMap = new TreeMap<>();
+        // Format the date into string
         LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String formattedDateTime = now.format(formatter);
-        transactionMap.put(ColumnName.TRANSACTION_ID,"30");
-        transactionMap.put(ColumnName.BOOK_TITLE,"what");
-        transactionMap.put(ColumnName.PATRON_ACCOUNT_ID,"10");
-        transactionMap.put(ColumnName.LIBRARIAN_ACCOUNT_ID,"12");
+
+        // Populate the map
+        transactionMap.put(ColumnName.TRANSACTION_ID, "12");
+        transactionMap.put(ColumnName.BOOK_TITLE, "Welcome");
+        transactionMap.put(ColumnName.PATRON_ACCOUNT_ID, "3");
+        transactionMap.put(ColumnName.LIBRARIAN_ACCOUNT_ID, "9");
         transactionMap.put(ColumnName.DATE_TIME, formattedDateTime);
-        transactionMap.put(ColumnName.TOTAL_AMOUNT, "522");
+        transactionMap.put(ColumnName.TOTAL_AMOUNT, "556");
+
         return transactionMap;
     }
 
    @Test
-    public void testReadRow() throws IOException{
-        LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
-        String firstName = fileManager.readRow("23");
-       System.out.println(firstName);
-   }
-   @Test
     public void testGetAllRows() throws IOException {
         LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
-        ArrayList<String> rows = (ArrayList<String>) fileManager.getAllRows("11");
+        ArrayList<String> rows = (ArrayList<String>) fileManager.getAllRows("32");
        for(String row :rows)
            System.out.println(row);
    }
 
+
    @Test
-    public void testDeleteRow(){
+   public void testDeleteSpecificRow() throws IOException {
+       LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
+       fileManager.deleteRow(createTransactionMap());
+   }
+
+   @Test
+    public void testClearFile() throws IOException {
         LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
-        try{
-            fileManager.deleteRow("30");
-        }catch(IOException e ){
-            System.err.println("Problem in : "+ e.getMessage());
-        }
+        fileManager.clearFile();
+   }
+
+   @Test
+    public void testUpdate(){
+        LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
+        fileManager.updateRow(createTransactionMap());
    }
 }

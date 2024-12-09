@@ -17,8 +17,8 @@ public class LMSFileManager implements LMSFileMangerOperations{
 
     @Override
     public void insertRow( Map<ColumnName, String> row) throws IOException {
-            StringBuilder newRow = new StringBuilder();
 
+            StringBuilder newRow = new StringBuilder();
             if(!new File(filePath).exists()){
                 throw new IOException("File NOT FOUND");
             }
@@ -26,8 +26,8 @@ public class LMSFileManager implements LMSFileMangerOperations{
                 try(FileWriter writer = new FileWriter(filePath,true)){
                     writer.write("\n");
                     for(String value : row.values())
-                        newRow.append(value).append("\t\t");
-                    // Append newLine to file
+                        newRow.append(value).append("\t");
+                    // Append rows to file
                     writer.write(newRow.toString().trim());
 
                 }catch (IOException e ){
@@ -36,76 +36,109 @@ public class LMSFileManager implements LMSFileMangerOperations{
             }
     }
 
-    @Override
-    public String readRow(String id) throws IOException{
-        String[] allRows = readAllRows();
-        for (String row : allRows) {
-            if (row.contains(id))
-                return row;
-        }
-        return "NOT FOUND";
-    }
 
-    @Override
-    public String[] readAllRows() throws IOException {
-            return loadFile().split("\n");
-    }
-
-    private String[] readAllRowsANDNames(){
-        return loadAllData().split("\n");
-    }
-
-    @Override
-    public List<String> getAllRows(String id) throws IOException {
-        List<String> targetRows = new ArrayList<>();
-        String[] allRows = readAllRows();
-        for (String row : allRows)
-            if(row.contains(id))
-                targetRows.add(row);
-        return targetRows;
-    }
-
-    @Override
-    public void deleteRow(String id ) throws IOException {
-        String[] rows = readAllRowsANDNames();
-        StringBuilder oldRow = new StringBuilder();
-            try (FileWriter writer = new FileWriter(filePath,false)) {
-                oldRow.append(rows[0]).append("\n");
-                for(int i = 1;i<rows.length;i++){
-                    if(!rows[i].contains(id)){
-                        oldRow.append(rows[i]).append("\n");
-                    }
-                }
-                writer.write(oldRow.toString().trim());
-            } catch (IOException e) {
-                LOGGER.log(Level.SEVERE, "Can't insert in file " + filePath, e);
-            }
-    }
-
-    private String loadFile() throws IOException{
-        StringBuilder data = new StringBuilder();
-        try(BufferedReader rd = new BufferedReader(new FileReader(filePath))){
-            rd.readLine();
+    private List<String> readAllRows() {
+        StringBuilder content = new StringBuilder();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String line;
-            while((line = rd.readLine())!=null){
-                data.append(line).append("\n");
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
             }
-        }catch (IOException e){
-            LOGGER.log(Level.SEVERE,"Can't Load Data from file " + filePath , e);
+            reader.close();
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Can't load data from file: " + filePath, e);
         }
-        return data.toString().trim();
+        return Arrays.asList(content.toString().split("\n"));
     }
 
-    private String loadAllData(){
-        StringBuilder data = new StringBuilder();
-        try(BufferedReader rd = new BufferedReader(new FileReader(filePath))){
-            String line;
-            while((line = rd.readLine())!=null){
-                data.append(line).append("\n");
+    @Override
+    public void updateRow(Map<ColumnName , String> updateRow) {
+
+        List<String> allRows = readAllRows();
+
+        String firstColumn = updateRow.values().iterator().next();
+
+        StringBuilder updatedContent = new StringBuilder();
+
+        // Add the header to the updated content
+        updatedContent.append(allRows.getFirst()).append("\n");
+        for (int i = 1; i < allRows.size(); i++) {
+            //  skipping the header (index 0)
+            String[] columns = allRows.get(i).split("\t");
+            if (columns[0].equalsIgnoreCase(firstColumn)) {
+                // Create a tab-separated row from updateRow values
+                String updatedRow = String.join("\t", updateRow.values());
+                updatedContent.append(updatedRow).append("\n");
+            }else{
+                updatedContent.append(allRows.get(i)).append("\n");
             }
-        }catch (IOException e){
-            LOGGER.log(Level.SEVERE,"Can't Load Data from file " + filePath , e);
         }
-        return data.toString().trim();
+        // Write updated content back to the file
+        try (FileWriter writer = new FileWriter(filePath, false)) {
+            writer.write(updatedContent.toString().trim());
+        }catch (IOException e){
+            LOGGER.log(Level.SEVERE, "Can't delete the row : " + filePath, e);
+        }
+    }
+
+    @Override
+    public List<String> getAllRows(String keyword) throws IOException {
+        List<String> rows = new ArrayList<>();
+        List<String> allRows = readAllRows();
+        for (String target : allRows)
+            if(target.contains(keyword))
+                rows.add(target);
+        return rows;
+    }
+
+    @Override
+    public void clearFile() throws IOException {
+        String header = getTheHeader();
+        if (header == null) {
+            throw new IOException("Header is null. Cannot write to file.");
+        }
+        try (FileWriter writer = new FileWriter(filePath, false)) {
+            writer.append(header);
+        }
+    }
+
+    @Override
+    public void deleteRow(Map<ColumnName,String> row){
+
+        List<String> allRows = readAllRows();
+
+        if (allRows.getFirst() == null) {
+            System.err.println("THe file is empty.");
+        }
+
+        String firstColumn =  row.values().iterator().next();
+        StringBuilder updatedContent = new StringBuilder();
+
+        // Add the header to the updated content
+        updatedContent.append(allRows.getFirst()).append("\n");
+
+        for (int i = 1; i < allRows.size(); i++) {
+            //  skipping the header (index 0)
+            String[] columns = allRows.get(i).split("\t");
+            if (!columns[0].equalsIgnoreCase(firstColumn)) {
+                updatedContent.append(allRows.get(i)).append("\n");
+            }
+        }
+        // Write updated content back to the file
+        try (FileWriter writer = new FileWriter(filePath, false)) {
+            writer.write(updatedContent.toString().trim());
+        }catch (IOException e){
+            LOGGER.log(Level.SEVERE, "Can't delete the row : " + filePath, e);
+        }
+    }
+
+    private String getTheHeader(){
+        try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
+            return reader.readLine();
+        } catch (IOException e) {
+            System.err.println("The error in getHeader method : " + e.getMessage());
+        }
+        return "NOT FOUND HEADER";
     }
 }

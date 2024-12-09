@@ -33,9 +33,11 @@ public class Account {
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
     }
+
     public boolean isActive(){
         return isActive;
     }
+
     public String getUserName() {
         return userName;
     }

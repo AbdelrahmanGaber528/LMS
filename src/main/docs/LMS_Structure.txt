@@ -70,15 +70,15 @@ Models represent the data entities in your project. Each model should have:
 - Any necessary methods (e.g., for data validation or formatting).
 
 ### **Required Models**
-1. **Admin**
+1. **Admin** extends the user class
    - Fields: `adminId`, `username`, `password`.
    - Methods: Getters/Setters.
 
-2. **Librarian**
+2. **Librarian** extends the user class
    - Fields: `librarianId`, `username`, `password`.
    - Methods: Getters/Setters.
 
-3. **Patron**
+3. **Patron** extends the user class
    - Fields: `patronId`, `username`, `password`, `borrowedBooks` (List of book IDs).
    - Methods: Getters/Setters, borrow/return book methods.
 
@@ -86,12 +86,9 @@ Models represent the data entities in your project. Each model should have:
    - Fields: `bookId`, `title`, `author`, `category`, `isAvailable`.
    - Methods: Getters/Setters.
 
-5. **BorrowRecord**
-   - Fields: `recordId`, `userId`, `bookId`, `borrowDate`, `returnDate`.
-   - Methods: Getters/Setters.
-
 6. **Account**
-   - Fields: `userId`, `username`, `password`, `role`.
-   - Methods: Getters/Setters.
+7. **User**
+
+8. **Transaction**
 
 ---
