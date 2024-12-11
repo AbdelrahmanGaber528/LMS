@@ -43,7 +43,7 @@ public class LMSFileManagerTest {
    @Test
     public void testGetAllRows() throws IOException {
         LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Transaction.txt");
-        ArrayList<String> rows = (ArrayList<String>) fileManager.getAllRows("32");
+        ArrayList<String> rows = (ArrayList<String>) fileManager.getAllRows();
        for(String row :rows)
            System.out.println(row);
    }

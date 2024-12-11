@@ -8,7 +8,7 @@ public interface LMSFileMangerOperations {
     public void insertRow( Map<ColumnName , String> row) throws IOException;
     public void updateRow( Map<ColumnName, String> updateRow);
     public void deleteRow(Map<ColumnName,String> row) throws IOException;
-    public List<String> getAllRows(String keyword) throws IOException;
+    public List<String> getAllRows() throws IOException;
     public void clearFile() throws IOException;
 }
 //private Map<Integer, Book> booksMap = new HashMap<>();

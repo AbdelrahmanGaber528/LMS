@@ -83,14 +83,7 @@ public class LMSFileManager implements LMSFileMangerOperations{
     }
 
     @Override
-    public List<String> getAllRows(String keyword) throws IOException {
-        List<String> rows = new ArrayList<>();
-        List<String> allRows = readAllRows();
-        for (String target : allRows)
-            if(target.contains(keyword))
-                rows.add(target);
-        return rows;
-    }
+    public List<String> getAllRows() throws IOException {return readAllRows();}
 
     @Override
     public void clearFile() throws IOException {

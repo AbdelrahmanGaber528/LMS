@@ -1,21 +1,27 @@
 package com.librarysystem.models;
 
+import com.librarysystem.dao.AccountDAO;
+
 public class Account {
 
     // userName password isActive
-    private static int accountID = 0;
     private String userName;
+    private int id ;
     private String password;
     private String role; // Example roles: "Admin", "Patron", "Librarian"
-    private boolean isActive = false;
-
+    private boolean isActive = true;
     // Constructor
     public Account(String userName, String password, String role) {
         this.userName = userName;
         this.password = password;
         this.role = role;
-        isActive = true;
-        accountID++;
+    }
+    // Constructor for loading an existing account
+    public Account(int id, String userName, String password, String role) {
+        this.id = id;
+        this.userName = userName;
+        this.password = password;
+        this.role = role;
     }
 
     // authentication
@@ -27,15 +33,18 @@ public class Account {
         return this.role.equalsIgnoreCase(role);
     }
 
-    public int getAccountID(){
-        return accountID;
-    }
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
     }
+    public void setId(int id){
+        this.id = id;
+    }
+    public String getAccountID(){
+        return String.valueOf(this.id);
+    }
 
-    public boolean isActive(){
-        return isActive;
+    public String isActive(){
+        return String.valueOf(this.isActive);
     }
 
     public String getUserName() {
