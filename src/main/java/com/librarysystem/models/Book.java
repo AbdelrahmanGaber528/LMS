@@ -1,24 +1,27 @@
 package com.librarysystem.models;
 
-
-// Book class
 public class Book {
+
     private int bookId;
     private String title;
     private String author;
     private String category;
-    private boolean isAvailable;
+    private boolean isAvailable = true;
 
-    public Book(int bookId, String title, String author, String category, boolean isAvailable) {
+    public Book(String title, String author ,String category){
+        this.title = title;
+        this.author = author;
+        this.category = category;
+    }
+    public Book(int bookId, String title, String author, String category) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.category = category;
-        this.isAvailable = isAvailable;
     }
 
-    public int getBookId() {
-        return bookId;
+    public String getBookId() {
+        return String.valueOf(this.bookId);
     }
 
     public void setBookId(int bookId) {

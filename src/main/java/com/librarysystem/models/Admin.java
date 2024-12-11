@@ -1,19 +1,20 @@
 package com.librarysystem.models;
 
-// Admin class
 public class Admin extends User {
-    private int adminId;
+
+    private String adminId;
 
     public Admin(String userName, String password) {
         super(userName, password, "Admin");
-        this.adminId = getUser_id();
+        this.adminId = getUserID();
     }
 
-    public int getAdminId() {
+    public String getAdminId() {
         return adminId;
     }
 
-    public void setAdminId(int adminId) {
+    public void setAdminId(String adminId) {
         this.adminId = adminId;
     }
+
 }

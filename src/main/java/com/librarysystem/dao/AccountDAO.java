@@ -37,6 +37,10 @@ public class AccountDAO {
         }
     }
 
+    public void updateAccount(Account account){
+        accountFileManager.updateRow(createAccountMap(account));
+    }
+
     public boolean authenticate(String userName, String password){
         List<Account> user = getValidAccounts(userName);
         if(user.isEmpty()) return false;

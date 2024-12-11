@@ -1,32 +1,24 @@
 package com.librarysystem.models;
 
-import com.librarysystem.dao.AccountDAO;
-
 public class Account {
 
-    // userName password isActive
     private String userName;
     private int id ;
     private String password;
     private String role; // Example roles: "Admin", "Patron", "Librarian"
     private boolean isActive = true;
-    // Constructor
+
     public Account(String userName, String password, String role) {
         this.userName = userName;
         this.password = password;
         this.role = role;
     }
-    // Constructor for loading an existing account
+    //  loading an existing account and unique id in dao
     public Account(int id, String userName, String password, String role) {
         this.id = id;
         this.userName = userName;
         this.password = password;
         this.role = role;
-    }
-
-    // authentication
-    public boolean authenticate(String inputUsername, String inputPassword) {
-        return this.userName.equals(inputUsername) && this.password.equals(inputPassword);
     }
 
     public boolean hasRole(String role) {
