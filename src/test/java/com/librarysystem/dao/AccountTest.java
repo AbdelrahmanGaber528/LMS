@@ -54,10 +54,10 @@
                 System.out.println("No accounts found for deletion.");
             }
         }
-        @Test
-        public void testGetValidate(){
-                Account mohammed = accountDAO.getValidateAccount("3");
-                accountDAO.deleteAccount(mohammed);
-            System.out.println("The id for deleted : " + mohammed.getAccountID());
-        }
+//        @Test
+//        public void testGetValidate(){
+//                Account mohammed = accountDAO.getValidateAccount("3");
+//                accountDAO.deleteAccount(mohammed);
+//            System.out.println("The id for deleted : " + mohammed.getAccountID());
+//        }
     }

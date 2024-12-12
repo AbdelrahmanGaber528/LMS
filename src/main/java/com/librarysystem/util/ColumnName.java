@@ -10,6 +10,8 @@ public enum ColumnName {
     BOOK_TITLE ,
     TOTAL_AMOUNT,
 
+    // Admin
+    ADMIN_Account_ID,
     // ACCOUNT
     USER_ID,
     USER_NAME ,

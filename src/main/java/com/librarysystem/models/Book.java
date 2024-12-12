@@ -6,18 +6,20 @@ public class Book {
     private String title;
     private String author;
     private String category;
-    private boolean isAvailable = true;
+    private String status ;
 
     public Book(String title, String author ,String category){
         this.title = title;
         this.author = author;
         this.category = category;
+        this.status = "available";
     }
     public Book(int bookId, String title, String author, String category) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.category = category;
+        this.status = "available";
     }
 
     public String getBookId() {
@@ -51,12 +53,11 @@ public class Book {
         this.category = category;
     }
 
-    public boolean isAvailable() {
-        return isAvailable;
+    public String getStatus(){
+        return this.status;
     }
-
-    public void setAvailable(boolean isAvailable) {
-        this.isAvailable = isAvailable;
+    public void setStatus(String status){
+        this.status = status;
     }
 }
 
