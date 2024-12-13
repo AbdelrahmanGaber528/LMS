@@ -3,8 +3,8 @@ package com.librarysystem.util;
 public enum ColumnName {
 
     // TRANSACTION
-    TRANSACTION_ID,
-    PATRON_ACCOUNT_ID,
+    TRANSACTION_ID,//0
+    PATRON_ACCOUNT_ID,//1
     LIBRARIAN_ACCOUNT_ID,
     DATE_TIME ,
     BOOK_TITLE ,
@@ -20,4 +20,6 @@ public enum ColumnName {
     CONTACT,
     PREFERENCES,
     IS_ACTIVE ,
+
+
 }

@@ -3,7 +3,7 @@ package com.librarysystem.models;
 public class Account {
 
     private String userName;
-    private int id ;
+    private String id ;
     private String password;
     private String role; // Example roles: "Admin", "Patron", "Librarian"
     private boolean isActive = true;
@@ -14,7 +14,7 @@ public class Account {
         this.role = role;
     }
     //  loading an existing account and unique id in dao
-    public Account(int id, String userName, String password, String role) {
+    public Account(String id, String userName, String password, String role) {
         this.id = id;
         this.userName = userName;
         this.password = password;
@@ -28,7 +28,7 @@ public class Account {
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
     }
-    public void setId(int id){
+    public void setId(String id){
         this.id = id;
     }
     public String getAccountID(){

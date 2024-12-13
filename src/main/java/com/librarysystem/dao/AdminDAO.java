@@ -1,54 +1,36 @@
 package com.librarysystem.dao;
 
-import com.librarysystem.models.Account;
-import com.librarysystem.models.Librarian;
-import com.librarysystem.models.Patron;
-import com.librarysystem.util.ColumnName;
+import com.librarysystem.models.Admin;
 import com.librarysystem.util.LMSFileManager;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class AdminDAO {
-    LMSFileManager fileManager = new LMSFileManager("src\\main\\docs\\Admin.txt");
+    LMSFileManager adminFileManager = new LMSFileManager("src\\main\\docs\\Admin.txt");
     AccountDAO adminAccount = new AccountDAO();
 
     public AdminDAO(){}
 
-    public void createLibrarianAccount(Librarian librarian){
-
-    }
-
-    public void createPatronAccount(Patron patron){
-
-    }
-
-    public void deletePatronAccount(Patron patron){
-
-    }
-
-    public void deleteLibrarianAccount(Librarian librarian){}
-
-    public void updatePatronAccount(Patron patron){}
-
-    public void updateLibrarianAccount(Librarian librarian){}
-
-    public List<Account> search(){}
-
-    public List<Patron> searchForPatron(String keyword){}
-
-    public List<Librarian> searchForLibrarian(String keyword){}
-
-    public void updateUserName(String userName){}
-    public void updatePassword(String password){}
-
-    private Map<ColumnName,String> createPatronMap(Patron patron){
-
-    }
-    private Map<ColumnName,String> createLibrarianMap(Librarian librarian){
-
+    public List<Admin> getAllAdmins(){
+        try{
+            List<String> accounts = adminFileManager.getAllRows();
+            List<Admin> admins = new ArrayList<>();
+            for(String account : accounts){
+                admins.add(createAdminFromString(account));
+            }
+            return admins;
+        }catch (IOException e){
+            System.err.println("Error in get Admins :"+e.getMessage());
+        }
+        return null;
     }
 
 
+
+    private Admin createAdminFromString(String account){
+        String[] details = account.split("\t");
+        return new Admin(details[1],details[2]);
+    }
 }

@@ -30,7 +30,7 @@ public class AccountDAO {
     public void addNewAccount(Account account){
         try{
             int newId = generateId();
-            account.setId(newId); // Set the generated ID
+            account.setId(String.valueOf(newId)); // Set the generated ID
             accountFileManager.insertRow(createAccountMap(account));
         }catch(IOException e){
             System.err.println("Problem in adding account :"+e.getMessage());
@@ -90,7 +90,7 @@ public class AccountDAO {
     }
 
     private Account createAccount(Map<ColumnName, String> user) {
-        int id = Integer.parseInt(user.get(ColumnName.USER_ID)); // Parse ID
+        String id = user.get(ColumnName.USER_ID); // Parse ID
         String userName = user.get(ColumnName.USER_NAME);
         String password = user.get(ColumnName.PASSWORD);
         String role = user.get(ColumnName.ROLE);
