@@ -13,9 +13,13 @@ import java.util.TreeMap;
 
 public  class LibrarianDAO {
 
-    LMSFileManager librarianFileManager = new LMSFileManager("src\\main\\docs\\Librarian.txt");
-    AccountDAO librarianAccount = new AccountDAO();
+   private final LMSFileManager librarianFileManager ;
+   private final AccountDAO librarianAccount;
 
+   public LibrarianDAO(){
+       librarianFileManager = new LMSFileManager("src\\main\\docs\\Librarian.txt");
+       librarianAccount =   new AccountDAO();
+   }
 
     public void createLibrarianAccount(Librarian librarian){
         try{

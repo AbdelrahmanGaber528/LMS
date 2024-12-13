@@ -1,7 +1,6 @@
 package com.librarysystem.dao;
 
 import com.librarysystem.models.Account;
-import com.librarysystem.models.Librarian;
 import com.librarysystem.models.Patron;
 import com.librarysystem.util.ColumnName;
 import com.librarysystem.util.LMSFileManager;
@@ -11,9 +10,13 @@ import java.util.*;
 
 public class PatronDAO {
 
-    AccountDAO patronAccount = new AccountDAO();
-    LMSFileManager patronFileManager = new LMSFileManager("src\\main\\docs\\Patron.txt");
+     private final LMSFileManager patronFileManager ;
+     private final AccountDAO patronAccount;
 
+    public PatronDAO(){
+        patronFileManager = new LMSFileManager("src\\main\\docs\\Patron.txt");
+        patronAccount = new AccountDAO();
+    }
     public void createPatronAccount (Patron patron){
         try {
             patronFileManager.insertRow(createPatronMap(patron));
