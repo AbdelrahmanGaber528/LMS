@@ -20,24 +20,30 @@ public class AdminDAO {
         adminFileManager = new LMSFileManager("src\\main\\docs\\Admin.txt");
     }
 
-    public List<Admin> getAllAdmins(){
+    public List<Admin> getAllAdmins()   {
+            List<Admin> admins = new ArrayList<>();
         try{
             List<String> accounts = adminFileManager.getAllRows();
-            List<Admin> admins = new ArrayList<>();
-            for(String account : accounts){
-                admins.add(createAdminFromString(account));
+            for (int i = 1; i < accounts.size(); i++) { // Start from index 1 to skip the first element
+                String account = accounts.get(i);
+                Admin admin = createAdminFromString(account);
+                admins.add(admin);
             }
-            return admins;
+
         }catch (IOException e){
             System.err.println("Error in get Admins :"+e.getMessage());
         }
-        return null;
+        return admins;
     }
 
     public void addNewAdmin(Admin admin){
         try{
+            Account account = createAccountAdmin(admin);
+            adminAccount.addNewAccount(account);
+            String id = account.getAccountID(); // Generate a single ID
+            account.setId(id); // Use the same ID for the Account
+            admin.setAdminId(id);
             adminFileManager.insertRow(createAdminMap(admin));
-            adminAccount.addNewAccount(createAccountAdmin(admin));
         }catch (IOException e){
             System.err.println("Error add new admin :"+e.getMessage());
         }
@@ -45,6 +51,8 @@ public class AdminDAO {
 
     public void deleteAdmin(Admin admin){
         adminFileManager.deleteRow(createAdminMap(admin));
+//        Account account = adminAccount.getValidateAccount(admin.getAdminId());
+//        adminAccount.deleteAccount(account);
         adminAccount.deleteAccount(createAccountAdmin(admin));
     }
 
@@ -53,10 +61,21 @@ public class AdminDAO {
         adminAccount.updateAccount(createAccountAdmin(admin));
     }
 
+    public void clearAdmins(){
+        try{
+            adminFileManager.clearFile();
+            adminAccount.clearAccounts("Admin");
+        }catch(IOException e){
+            System.err.println("Error in clearing admin file :"+e.getMessage());
+        }
+    }
 
     private Account createAccountAdmin(Admin admin){
-        return new Account(admin.getAccount().getUserName(),admin.getAccount().getPassword(),"Admin");
+         Account account = new Account(admin.getAccount().getUserName(),admin.getAccount().getPassword(),"Admin");
+         account.setId(admin.getAdminId());
+         return account;
     }
+
     private Map<ColumnName,String> createAdminMap(Admin admin){
         Map<ColumnName,String> adminMap = new TreeMap<>();
         adminMap.put(ColumnName.ADMIN_Account_ID,admin.getAdminId());
@@ -68,8 +87,14 @@ public class AdminDAO {
 
         return adminMap;
     }
+
     private Admin createAdminFromString(String account){
         String[] details = account.split("\t");
-        return new Admin(details[1],details[2]);
+        Admin admin = new Admin(details[1],details[2]);
+        admin.setAdminId(details[0]);
+        admin.setContact(details[3]);
+        admin.setPreferences(details[4]);
+
+        return admin;
     }
 }

@@ -21,10 +21,7 @@ public class Account {
         this.role = role;
     }
 
-    public boolean hasRole(String role) {
-        return this.role.equalsIgnoreCase(role);
-    }
-
+    public Account(){}
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
     }

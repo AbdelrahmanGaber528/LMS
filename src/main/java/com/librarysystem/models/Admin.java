@@ -4,6 +4,8 @@ public class Admin extends User {
 
     private String adminId;
 
+    public Admin(){}
+
     public Admin(String userName, String password) {
         super(userName, password, "Admin");
         this.adminId = getUserID();

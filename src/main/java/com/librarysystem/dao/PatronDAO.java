@@ -17,34 +17,53 @@ public class PatronDAO {
         patronFileManager = new LMSFileManager("src\\main\\docs\\Patron.txt");
         patronAccount = new AccountDAO();
     }
-    public void createPatronAccount (Patron patron){
+
+    public void addNewPatron(Patron patron){
         try {
+            Account account = createAccountPatron(patron);
+            patronAccount.addNewAccount(account);
+            String id = account.getAccountID(); // Generate a single ID
+            account.setId(id); // Use the same ID for the Account
+            patron.setPatronId(id);
             patronFileManager.insertRow(createPatronMap(patron));
         } catch (IOException e) {
-            System.err.println("Error in add librarian account with admin :" + e.getMessage());
+            System.err.println("Error in adding patron account  :" + e.getMessage());
         }
     }
 
     public void deletePatronAccount(Patron patron) {
         patronFileManager.deleteRow(createPatronMap(patron));
-        patronAccount.deleteAccount(createLibrarianAccount(createPatronMap(patron)));
+        patronAccount.deleteAccount(createAccountPatron(patron));
     }
 
     public void updatePatronAccount (Patron patron){
+        patronFileManager.updateRow(createPatronMap(patron));
+        patronAccount.updateAccount(createAccountPatron(patron));
     }
 
     public List<Patron> getAllPatrons(){
+           List<Patron> patrons = new ArrayList<>();
        try{
            List<String> accounts = patronFileManager.getAllRows();
-           List<Patron> patrons = new ArrayList<>();
-           for(String account : accounts){
-               patrons.add(createPatronFromString(account));
+           for (int i = 1; i < accounts.size(); i++) { // Start from index 1 to skip the first element
+               String account = accounts.get(i);
+               Patron patron = createPatronFromString(account);
+               patrons.add(patron);
            }
-           return patrons;
+
        }catch(IOException e){
            System.err.println("Error in getPatrons :"+e.getMessage());
        }
-       return null;
+        return patrons;
+    }
+
+    public void clearPatrons(){
+        try{
+            patronFileManager.clearFile();
+            patronAccount.clearAccounts("Patron");
+        }catch(IOException e){
+            System.err.println("Error in deleting patron accounts :"+e.getMessage());
+        }
     }
 
     private Map<ColumnName, String> createPatronMap (Patron patron){
@@ -58,11 +77,18 @@ public class PatronDAO {
 
         return patronMap;
     }
-    private Account createLibrarianAccount(Map<ColumnName , String> patron){
-        return new Account(patron.get(ColumnName.LIBRARIAN_ACCOUNT_ID),patron.get(ColumnName.USER_NAME),patron.get(ColumnName.PASSWORD),patron.get(ColumnName.ROLE));
+    private Account createAccountPatron(Patron patron){
+        Account account = new Account(patron.getAccount().getUserName(),patron.getAccount().getPassword(),"Patron");
+        account.setId(patron.getPatronId());
+        return account;
     }
     private Patron createPatronFromString(String account){
         String[] details = account.split("\t");
-        return new Patron(details[1],details[2]);
+        Patron patron = new Patron(details[1],details[2]);
+        patron.setPatronId(details[0]);
+        patron.setContact(details[3]);
+        patron.setPreferences(details[4]);
+
+        return patron;
     }
 }
