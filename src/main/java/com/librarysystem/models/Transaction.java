@@ -2,35 +2,28 @@ package com.librarysystem.models;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 
 public class Transaction {
 
     private int transactionId = 0;
     private final String patronId;
     private final String librarianId;
-    private double totalAmount ;
-    private List<Book> books;
+    private int totalAmount ;
     private final LocalDateTime transactionTime;
     private String transactionType; // "Borrow" or "Return"
 
-    public Transaction(String patronId, String librarianId, double totalAmount,List<Book> books) {
+    public Transaction(String patronId, String librarianId, int totalAmount) {
         this.patronId = patronId;
         this.librarianId = librarianId;
         this.totalAmount = totalAmount;
-        this.transactionTime = LocalDateTime.now(); // Set the current date and time
-        this.books = books;
+        this.transactionTime = LocalDateTime.now();
     }
-    public Transaction(int transactionId,String patronId, String librarianId, double totalAmount,List<Book> books){
+    public Transaction(int transactionId,String patronId, String librarianId, int totalAmount){
         this.transactionId = transactionId;
         this.patronId = patronId;
         this.librarianId = librarianId;
         this.totalAmount = totalAmount;
-        this.transactionTime = LocalDateTime.now(); // Set the current date and time
-        this.books = books;
-    }
-    public List<Book> getAllBooks(){
-        return books;
+        this.transactionTime = LocalDateTime.now();
     }
 
     public void setTransactionId(int id ){
@@ -38,8 +31,8 @@ public class Transaction {
     }
     public String getTransactionId() { return String.valueOf(this.transactionId); }
 
-    public double getTotalAmount(){ return this.totalAmount; }
-    public void setTotalAmount(double totalAmount){ this.totalAmount = totalAmount;}
+    public int getTotalAmount(){ return this.totalAmount; }
+    public void setTotalAmount(int totalAmount){ this.totalAmount = totalAmount;}
 
     public String getTransactionTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

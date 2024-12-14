@@ -7,12 +7,13 @@ public class Book {
     private String author;
     private String category;
     private String status ;
-
+    private int amount ;
     public Book(String title, String author ,String category){
         this.title = title;
         this.author = author;
         this.category = category;
         this.status = "available";
+        this.amount++;
     }
     public Book(int bookId, String title, String author, String category) {
         this.bookId = bookId;
@@ -20,6 +21,15 @@ public class Book {
         this.author = author;
         this.category = category;
         this.status = "available";
+        this.amount++;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public int getAmount() {
+        return amount;
     }
 
     public String getBookId() {
@@ -56,8 +66,10 @@ public class Book {
     public String getStatus(){
         return this.status;
     }
+
     public void setStatus(String status){
         this.status = status;
     }
+
 }
 

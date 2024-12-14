@@ -36,22 +36,6 @@ public class LMSFileManager implements LMSFileMangerOperations{
             }
     }
 
-
-    private List<String> readAllRows() {
-        StringBuilder content = new StringBuilder();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filePath));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                content.append(line).append("\n");
-            }
-            reader.close();
-        } catch (IOException e) {
-            LOGGER.log(Level.SEVERE, "Can't load data from file: " + filePath, e);
-        }
-        return Arrays.asList(content.toString().split("\n"));
-    }
-
     @Override
     public void updateRow(Map<ColumnName , String> updateRow) {
 
@@ -134,4 +118,19 @@ public class LMSFileManager implements LMSFileMangerOperations{
         }
         return "NOT FOUND HEADER";
     }
+    private List<String> readAllRows() {
+        StringBuilder content = new StringBuilder();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                content.append(line).append("\n");
+            }
+            reader.close();
+        } catch (IOException e) {
+            LOGGER.log(Level.SEVERE, "Can't load data from file: " + filePath, e);
+        }
+        return Arrays.asList(content.toString().split("\n"));
+    }
+
 }
