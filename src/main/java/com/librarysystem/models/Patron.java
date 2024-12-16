@@ -10,6 +10,11 @@ public class Patron extends User {
         this.patronId = getUserID();
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public String getPatronId() {
         return patronId;
     }

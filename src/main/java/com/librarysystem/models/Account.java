@@ -22,6 +22,7 @@ public class Account {
     }
 
     public Account(){}
+
     public void setIsActive(boolean isActive){
         this.isActive = isActive;
     }

@@ -44,4 +44,9 @@ public abstract class User{
     public void setPreferences(String preferences) {
         this.preferences = preferences;
     }
+
+    public  String toString(){
+        return "ID: "+ this.getAccount().getAccountID() +" UserName: " + this.getAccount().getUserName() + "Role: "+ this.getAccount().getRole() + " Contact: "
+                + this.getContact() + " Preferences:" + this.getPreferences();
+    }
 }

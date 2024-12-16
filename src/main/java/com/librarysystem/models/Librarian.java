@@ -12,6 +12,11 @@ public class Librarian extends User {
         this.librarianId = getUserID();
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
     public String getLibrarianId() {
         return librarianId;
     }

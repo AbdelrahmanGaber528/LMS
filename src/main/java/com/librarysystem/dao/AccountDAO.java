@@ -52,68 +52,39 @@
                 for(String account : accounts){
                     String[] details = account.split("\t");
                     if(details.length >=5 && details[3].trim().equalsIgnoreCase(role.trim()))
-                        accountFileManager.deleteRow(createAccountMapString(account));
+                        accountFileManager.deleteRow(createAccountMap(createAccountFromString(account)));
                 }
             }catch (IOException e){
                 System.err.println("Error in clearing accounts :"+e.getMessage());
             }
         }
 
-        Account getValidateAccount(String id ){
-            try {
-                // Retrieve all rows from the file
-                List<String> allAccounts = accountFileManager.getAllRows();
-                for (String a : allAccounts) {
-                    String[] details = a.split("\t");
-                    // Ensure data has the expected format
-                    if (details.length >=5 && details[0].trim().equalsIgnoreCase(id.trim())) {
-                        return createAccount(createAccountMapString(a));
-                    }
+        public List<Account> getAllAccounts(){
+            List<Account> accounts = new ArrayList<>();
+            try{
+                List<String> rows = accountFileManager.getAllRows();
+                for (int i = 1; i < rows.size(); i++) {
+                    String account = rows.get(i);
+                    Account account1 = createAccountFromString(account);
+                    accounts.add(account1);
                 }
-            } catch (IOException e) {
-                System.err.println("Error in getValidAccount method: " + e.getMessage());
+            }catch (IOException e ){
+                System.err.println("Error in getAllAccounts method :"+e.getMessage());
+            }
+            return accounts;
+        }
+
+        public Account getById(String id){
+            List<Account> accounts = getAllAccounts();
+            for(Account account : accounts){
+                if(account.getAccountID().equalsIgnoreCase(id))
+                    return account;
             }
             return null;
         }
 
-        List<Account> getValidAccounts(String userName){
-            List<Account> users = new ArrayList<>();
-            try {
-                // Retrieve all rows from the file
-                List<String> allAccounts = accountFileManager.getAllRows();
-                for (String a : allAccounts) {
-                    String[] details = a.split("\t");
-                    // Ensure data has the expected format
-                    if (details.length >=5 && details[1].trim().equalsIgnoreCase(userName.trim())) {
-                        users.add(createAccount(createAccountMapString(a)));
-                    }
-                }
-            } catch (IOException e) {
-                System.err.println("Error in getValidAccounts method: " + e.getMessage());
-            }
-            return users;
-        }
 
-        private Account createAccount(Map<ColumnName, String> user) {
-            String id = user.get(ColumnName.USER_ID); // Parse ID
-            String userName = user.get(ColumnName.USER_NAME);
-            String password = user.get(ColumnName.PASSWORD);
-            String role = user.get(ColumnName.ROLE);
-            return new Account(id, userName, password, role);
-        }
 
-        private Map<ColumnName,String> createAccountMapString(String user){
-            String[] details = user.split("\t");
-            Map<ColumnName,String> account = new TreeMap<>();
-            account.put(ColumnName.USER_ID,details[0]);
-            account.put(ColumnName.USER_NAME,details[1]);
-            account.put(ColumnName.PASSWORD,details[2]);
-            account.put(ColumnName.ROLE,details[3]);
-            account.put(ColumnName.IS_ACTIVE, details[4]);
-
-            return account;
-        } // create map from string , |^|
-        /// we will use this method in createAccount
         private Map<ColumnName ,String> createAccountMap(Account account){
             Map<ColumnName ,String > accountMap = new TreeMap<>();
 
@@ -124,8 +95,11 @@
             accountMap.put(ColumnName.ROLE,account.getRole());
 
             return accountMap;
-        } // create Map from account object
-
+        }
+        private Account createAccountFromString(String account){
+            String[] details = account.split("\t");
+            return  new Account(details[0],details[1],details[2],details[3]);
+        }
         public  int generateId() {
             idCounter++;
             try (BufferedWriter writer = new BufferedWriter(new FileWriter("src\\main\\docs\\idCounter.txt"))) {
@@ -135,5 +109,4 @@
             }
             return idCounter;
         }
-
     }

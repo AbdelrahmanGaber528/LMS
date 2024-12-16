@@ -40,7 +40,7 @@
             AccountDAO dao = new AccountDAO();
 
             // Load existing accounts
-            List<Account> accounts = dao.getValidAccounts(account.getUserName());
+            List<Account> accounts = dao.getAllAccounts();
 
             // Check and delete the first account
             if (!accounts.isEmpty()) {
