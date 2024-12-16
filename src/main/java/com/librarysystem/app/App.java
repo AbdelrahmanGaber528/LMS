@@ -20,6 +20,7 @@ public class App extends Application {
         stage.setTitle("Library Management System");
         stage.initStyle(StageStyle.DECORATED);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 }

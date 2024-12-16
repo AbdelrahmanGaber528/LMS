@@ -4,8 +4,8 @@
 #label {
     -fx-text-fill: #54473F;
 }
-#usernameField , #passwordField{
-    -fx-background-color: #ffff;
+#text{
+     -fx-background-color: #ffff;
 }
 #errorLabel{
     -fx-font-size : 15px;

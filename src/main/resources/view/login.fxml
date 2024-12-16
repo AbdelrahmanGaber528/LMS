@@ -34,13 +34,13 @@
             </AnchorPane>
             <AnchorPane layoutX="474.0" layoutY="-1.0" prefHeight="550.0" prefWidth="404.0">
                <children>
-                  <Label fx:id="errorLabel" style="-fx-text-fill: red;" text=""  visible="false" layoutY="140" layoutX="145"/>
+                  <Label fx:id="errorLabel" layoutX="145" layoutY="140" style="-fx-text-fill: red;" text="" visible="false" />
                   <Label id="label" layoutX="145.0" layoutY="56.0" prefHeight="55.0" prefWidth="123.0" text="Welcome" textFill="WHITE">
                      <font>
                         <Font size="28.0" />
                      </font>
                   </Label>
-                  <TextField  id="text" fx:id="usernameField" layoutX="126.0" layoutY="185.0" prefHeight="20.0" prefWidth="180.0" promptText="User Name">
+                  <TextField id="text" fx:id="usernameField" layoutX="126.0" layoutY="185.0" prefHeight="20.0" prefWidth="180.0" promptText="User Name" styleClass="login-bg">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
@@ -68,7 +68,7 @@
                         </Lighting>
                      </effect>
                   </PasswordField>
-                  <Button id="loginButton" fx:id="loginButton" centerShape="false" layoutX="177.0" layoutY="333.0" mnemonicParsing="false" onAction="#handleLoginButton" text="Login" textFill="#ffacac">
+                  <Button id="loginButton" fx:id="loginButton" centerShape="false" layoutX="181.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleLoginButton" text="Login" textFill="#ffacac">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

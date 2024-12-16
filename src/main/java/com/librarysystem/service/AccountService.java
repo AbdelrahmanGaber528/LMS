@@ -2,15 +2,14 @@ package com.librarysystem.service;
 
 import com.librarysystem.dao.AccountDAO;
 import com.librarysystem.models.Account;
-import com.librarysystem.models.User;
 
 import java.util.List;
 
-public class LoginService {
+public class AccountService {
 
     private final AccountDAO accountDAO ;
 
-    public LoginService(){
+    public AccountService(){
         accountDAO = new AccountDAO();
     }
 
@@ -19,33 +18,13 @@ public class LoginService {
         return account.getRole();
     }
 
-    public boolean login(String userName , String password){
+    public Account login(String userName , String password){
         List<Account> accounts  = accountDAO.getAllAccounts();
         for(Account account : accounts){
             if(account.getUserName().equalsIgnoreCase(userName) && account.getPassword().equalsIgnoreCase(password))
-                return true;
+                return account;
         }
-        return false;
-    }
-
-    public void register(User user){
-        try {
-            System.out.println("Register user: " + user.toString());
-
-            if (user.getAccount() == null) {
-                throw new IllegalArgumentException("User or Account object is null.");
-            }
-            // Check if the account already exists by ID
-            if (!isFound(user.getAccount().getAccountID())) {
-                System.out.println("User not found. Proceeding with registration.");
-                accountDAO.addNewAccount(user.getAccount());
-                System.out.println("Registration successful for user: " + user);
-            } else {
-                System.err.println("Account already exists for ID: " + user.getAccount().getAccountID());
-            }
-        } catch (Exception e) {
-            System.err.println("Error in registering user: " + e.getMessage());
-        }
+        return null;
     }
 
     public void activateAccount(String userId) {
@@ -79,10 +58,6 @@ public class LoginService {
         } else {
             System.err.println("Account not found for user ID: " + userId);
         }
-    }
-
-    private boolean isFound(String userId){
-        return accountDAO.getById(userId) != null;
     }
 
 }

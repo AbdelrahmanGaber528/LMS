@@ -1,15 +1,2 @@
 USER_ID USER_NAME   PASSWORD    ROLE    IS_ACTIVE
-1   Alice	password1	Admin	true
-2	Bob	password2	Admin	true
-22	Abdelrahman	1111	Admin	true
-23	Abdelrahman	1111	Admin	true
-24	Alice	password1	Admin	true
-25	Bob	password2	Admin	true
-26	Charlie	password3	Admin	true
-27	Diana	password4	Admin	true
-28	Eve	password5	Admin	true
-29	password123	user	Patron	true
-30	patronName	tmpPassword	Patron	true
-31	patronName	tmpPassword	Patron	true
-33	patronName	tmpPassword	Patron	false
-34	patronName	FUCK**	Patron	true
+1	Mohammed	0000	Admin	true
