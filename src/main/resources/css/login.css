@@ -1,0 +1,23 @@
+.login-bg{
+    -fx-background-color : linear-gradient(to bottom right , #3d6dff,#e6f1fe);
+}
+#label {
+    -fx-text-fill: #54473F;
+}
+#usernameField , #passwordField{
+    -fx-background-color: #ffff;
+}
+#errorLabel{
+    -fx-font-size : 15px;
+}
+#loginButton{
+    -fx-background-color : #c4e7ff;
+    -fx-font-size : 20px;
+    -fx-text-fill : #333333;
+}
+
+#exit{
+    -fx-background-color : #e04353;
+    -fx-background-radius : -5px;
+    -fx-cursor : hand;
+}
