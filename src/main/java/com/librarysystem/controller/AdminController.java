@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class AdminController{
@@ -17,7 +16,7 @@ public class AdminController{
     public  void handleLogout(ActionEvent event) {
         try{
             // Load the new FXML
-            Parent root = FXMLLoader.load(Objects.requireNonNull(LogoutController.class.getResource("/view/login.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/login.fxml")));
             Scene scene = new Scene(root);
 
             // Get the current stage

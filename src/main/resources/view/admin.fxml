@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import com.librarysystem.controller.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.librarysystem.controller.AdminController?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysystem.controller.AdminController">
 
+
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysystem.controller.AdminController">
+   <children>
+      <MenuBar layoutX="177.0" layoutY="2.0" prefHeight="35.0" prefWidth="624.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="6.0" layoutY="3.0" prefHeight="35.0" prefWidth="172.0" text="Admin&lt;DashBoard&gt;" textFill="#00b1ff">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="6.0" layoutY="38.0" mnemonicParsing="false" text="Logout" onAction="#handleLogout">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>

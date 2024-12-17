@@ -15,7 +15,7 @@ public class PatronController {
     public  void handleLogout(ActionEvent event) {
         try{
             // Load the new FXML
-            Parent root = FXMLLoader.load(Objects.requireNonNull(LogoutController.class.getResource("/view/login.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/login.fxml")));
             Scene scene = new Scene(root);
 
             // Get the current stage
