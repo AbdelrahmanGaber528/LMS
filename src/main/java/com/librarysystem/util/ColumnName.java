@@ -2,12 +2,14 @@ package com.librarysystem.util;
 
 public enum ColumnName {
     // Book
-    BOOK_ID,
+
     // TRANSACTION
-    TRANSACTION_ID,//0
+    TRANSACTION_ID,
+    BOOK_ID,//0
     PATRON_ACCOUNT_ID,//1
     LIBRARIAN_ACCOUNT_ID,
-    DATE_TIME ,
+    ISSUE_DATE,
+    RETURN_DATE,
     BOOK_TITLE ,
     TOTAL_AMOUNT,
 
@@ -28,7 +30,7 @@ public enum ColumnName {
     ROLE,
     CONTACT,
     PREFERENCES,
-    IS_ACTIVE ,
+    IS_ACTIVE, TITLE, AUTHOR, GENRE, PRODUCTION_DATE, IS_AVAILABLE,
 
 
 }

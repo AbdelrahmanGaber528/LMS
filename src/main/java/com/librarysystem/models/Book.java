@@ -1,5 +1,7 @@
 package com.librarysystem.models;
 
+import java.util.Date;
+
 public class Book {
 
     private int bookId;
@@ -8,6 +10,7 @@ public class Book {
     private String category;
     private String status ;
     private int amount ;
+    private Date productionDate;
     public Book(String title, String author ,String category){
         this.title = title;
         this.author = author;
@@ -22,6 +25,10 @@ public class Book {
         this.category = category;
         this.status = "available";
         this.amount++;
+    }
+
+    public Book(int id, String title, String author, String genre, String productionDate, boolean isAvailable) {
+
     }
 
     public void setAmount(int amount) {
@@ -66,10 +73,22 @@ public class Book {
     public String getStatus(){
         return this.status;
     }
-
-    public void setStatus(String status){
-        this.status = status;
+    public void setId(int id){
+        this.bookId = id;
+    }
+    public int getId(){
+        return this.bookId;
     }
 
-}
+    public Date getProductionDate() {
+        return productionDate;
+    }
 
+    public void setProductionDate(Date productionDate) {
+        this.productionDate = productionDate;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}
