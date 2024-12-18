@@ -1,6 +1,5 @@
 package com.librarysystem.service;
 
-import com.librarysystem.dao.AccountDAO;
 import com.librarysystem.dao.AdminDAO;
 import com.librarysystem.models.Admin;
 
@@ -9,11 +8,9 @@ import java.util.List;
 public class AdminService implements UserActions{
 
     private final AdminDAO adminDAO;
-    private final AccountDAO accountDAO;
 
     public AdminService(){
         adminDAO = new AdminDAO();
-        accountDAO = new AccountDAO();
     }
 
 
@@ -34,5 +31,8 @@ public class AdminService implements UserActions{
     @Override
     public void updatePreferences(String preferences) {
 
+    }
+    public List<Admin> getAllAdmins(){
+        return adminDAO.getAllAdmins();
     }
 }

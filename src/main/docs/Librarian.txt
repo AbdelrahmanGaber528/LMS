@@ -1,1 +1,11 @@
 LIBRARIAN_ACCOUNT_ID    USER_NAME   PASSWORD    CONTACT PREFERENCES IS_ACTIVE
+8	Laura	password1	laura@example.com	Digital Resources	true
+9	Mark	password2	mark@example.com	Children's Books	true
+10	Nancy	password3	nancy@example.com	Rare Books	true
+11	Oscar	password4	oscar@example.com	Science Journals	true
+12	Paul	password5	paul@example.com	Music Collections	true
+13	Laura	password1	laura@example.com	Digital Resources	true
+14	Mark	password2	mark@example.com	Children's Books	true
+15	Nancy	password3	nancy@example.com	Rare Books	true
+16	Oscar	password4	oscar@example.com	Science Journals	true
+17	Paul	password5	paul@example.com	Music Collections	true

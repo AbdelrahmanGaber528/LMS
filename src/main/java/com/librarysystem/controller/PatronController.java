@@ -1,5 +1,7 @@
 package com.librarysystem.controller;
 
+import com.librarysystem.dao.PatronDAO;
+import com.librarysystem.models.Patron;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,9 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.List;
 import java.util.Objects;
 
-public class PatronController {
+public class PatronController  {
 
     @FXML
     public  void handleLogout(ActionEvent event) {
@@ -28,4 +31,8 @@ public class PatronController {
             System.err.println("Error in logout :"+e.getMessage());
         }
     }
+    public List<Patron> getAllPatrons(){
+        return new PatronDAO().getAllPatrons();
+    }
+
 }

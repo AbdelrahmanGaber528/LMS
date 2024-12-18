@@ -1,5 +1,7 @@
 package com.librarysystem.controller;
 
+import com.librarysystem.dao.LibrarianDAO;
+import com.librarysystem.models.Librarian;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.List;
 import java.util.Objects;
 
 public class LibrarianController {
@@ -27,6 +30,10 @@ public class LibrarianController {
         } catch (Exception e) {
             System.err.println("Error in logout :"+e.getMessage());
         }
+    }
+
+    public List<Librarian> getAllLibrarians(){
+        return new LibrarianDAO().getAllLibrarians();
     }
 
 }

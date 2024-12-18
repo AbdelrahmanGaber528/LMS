@@ -1,5 +1,5 @@
 package com.librarysystem.dao;
 
-public class BookDAO {
 
+public class BookDAO {
 }

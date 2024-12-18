@@ -3,54 +3,52 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.layout.TilePane?>
-<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysystem.controller.AdminController">
+
+<BorderPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/22-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysystem.controller.AdminController" stylesheets="@../css/admin.css">
     <!-- Sidebar -->
     <left>
-        <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="182.0" spacing="10" styleClass="sidebar" stylesheets="@../css/admin.css" BorderPane.alignment="CENTER">
-         <ImageView fitHeight="109.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../images/admin.png" />
-            </image>
-         </ImageView>
-         <Label prefHeight="18.0" prefWidth="89.0" text="Welcome,Admin" textFill="WHITE" />
-            <Button prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #34495E; -fx-text-fill: white; -fx-font-size: 14px;" styleClass="welcome-message" stylesheets="@../css/admin.css" text="Manage Users">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Button>
+        <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="182.0" spacing="10" styleClass="sidebar" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="109.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@../images/admin.png" />
+                </image>
+            </ImageView>
+            <Label fx:id="userName_message" prefHeight="18.0" prefWidth="95.0" text="Welcome Admin" textFill="WHITE" />
             <Button prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #34495E; -fx-text-fill: white; -fx-font-size: 14px;" text="Profile">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Button>
-            <Button onAction="#handleDashBoard" prefHeight="44.0" prefWidth="200.0" style="-fx-background-color: #34495E; -fx-text-fill: white; -fx-font-size: 14px;" text="Dashboard">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Button>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Button onAction="#loadUsers" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #34495E; -fx-text-fill: white; -fx-font-size: 14px;" text="Manage Accounts">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
+            <Button onAction="#loadBooks" prefHeight="44.0" prefWidth="200.0" style="-fx-background-color: #34495E; -fx-text-fill: white; -fx-font-size: 14px;" text="Manage Books">
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
             <Button onAction="#handleLogout" prefHeight="43.0" prefWidth="200.0" style="-fx-background-color: #34495E; -fx-text-fill: white; -fx-font-size: 14px;" text="Sign out">
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor></Button>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </Button>
         </VBox>
     </left>
 
     <!-- Main Content Area -->
     <center>
-        <VBox xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="TOP_CENTER">
-            <Label text="Books Collection" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
-
-            <!-- Button to Add Book -->
-            <Button text="Add New Book" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
-
-            <!-- TilePane to display books -->
-            <TilePane fx:id="bookTilePane" hgap="10" vgap="10" padding="10" style="-fx-background-color: #ecf0f1;">
-                <!-- Book Cards will be added dynamically here -->
-            </TilePane>
-        </VBox>
+        <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: #ecf0f1;">
+            <content>
+                <TilePane fx:id="userTilePane" hgap="10" vgap="10" style="-fx-background-color: #ecf0f1;" />
+            </content>
+        </ScrollPane>
     </center>
 </BorderPane>
