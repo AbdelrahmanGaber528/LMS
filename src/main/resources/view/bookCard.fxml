@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane prefHeight="30.0" prefWidth="185.0" xmlns="http://javafx.com/javafx/22-ea" xmlns:fx="http://javafx.com/fxml" fx:controller="com.librarysystem.controller.BookCardController" stylesheets="@../css/book.css">
+    <center>
+        <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #f4f4f4; -fx-border-radius: 5; -fx-padding: 10;">
+            <ImageView fx:id="userImage" fitHeight="100.0" fitWidth="100.0" preserveRatio="true">
+                <image>
+                    <Image url="@../images/login-book.jpg" />
+                </image>
+            </ImageView>
+            <!-- Book details -->
+            <Label fx:id="bookTitle" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+            <Label fx:id="bookAuthor" style="-fx-font-size: 14px;" />
+            <Label fx:id="bookGenre" style="-fx-font-size: 14px;" />
+            <Label fx:id="bookAvailability" style="-fx-font-size: 14px; -fx-text-fill: green;" />
+            <Label fx:id="bookAmount" style="-fx-font-size: 14px; -fx-text-fill: green;" />
+
+            <!-- Button for details -->
+            <Button text="View Details" fx:id="viewDetailsButton" />
+        </VBox>
+    </center>
+</BorderPane>

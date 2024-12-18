@@ -1,0 +1,11 @@
+.sidebar{
+    -fx-background-color:#213555;
+}
+#deleteUser{
+    -fx-background-color : #e44;
+    -fx-cursor : HAND;
+}
+#viewDetailsButton{
+    -fx-cursor : HAND;
+    -fx-background-color : #8695;
+}

@@ -27,7 +27,7 @@ public class LoginController {
     private Label errorLabel;
 
     @FXML
-    private Button loginButton;
+    private  Button loginButton;
 
     private final AccountService accountService;
 
@@ -36,10 +36,15 @@ public class LoginController {
     }
 
     @FXML
+    public void initialize(){
+        usernameField.setText("Abdelrahman");
+        passwordField.setText("0000");
+    }
+
+    @FXML
     public void handleLoginButton(ActionEvent event) {
         String userName = usernameField.getText().trim();
         String password = passwordField.getText().trim();
-
         if (userName.isEmpty()) {
             errorLabel.setText("Please input UserName");
             errorLabel.setVisible(true);
@@ -58,33 +63,13 @@ public class LoginController {
             errorLabel.setStyle("-fx-text-fill: green;");
             loadRoleSpecificWindow(accountService.getRole(user.getAccountID()));
         } else {
-            errorLabel.setText("Invalid Account.");
+            errorLabel.setText("Invalid Account");
             errorLabel.setLayoutX(158);
             errorLabel.setStyle("-fx-text-fill: red;");
         }
         errorLabel.setVisible(true);
     }
 
-    @FXML
-    public void handleLogoutButton(ActionEvent event){
-
-    }
-
-    private void loadMainWindow(){
-       try{
-           // Load the login fxml
-           Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/view/login.fxml")));
-           Scene scene = new Scene(root);
-           // Get the current stage
-           Stage stage = (Stage) loginButton.getScene().getWindow();
-           stage.setResizable(false);
-           stage.setScene(scene);
-           stage.centerOnScreen();
-       }catch (Exception e){
-           System.err.println("Error in logout:"+e.getMessage());
-       }
-
-    }
     private void loadRoleSpecificWindow(String role) {
         try {
             String fxmlPath = switch (role) {
@@ -101,6 +86,7 @@ public class LoginController {
             // Get the current stage
             Stage stage = (Stage) loginButton.getScene().getWindow();
             stage.setResizable(false);
+            stage.setTitle("Library Management System - " + role);
             stage.setScene(scene);
             stage.centerOnScreen();
 

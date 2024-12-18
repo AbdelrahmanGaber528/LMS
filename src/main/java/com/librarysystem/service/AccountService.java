@@ -13,6 +13,10 @@ public class AccountService {
         accountDAO = new AccountDAO();
     }
 
+    public List<Account> getAllUsers(){
+        return accountDAO.getAllAccounts();
+    }
+
     public String getRole(String userId){
         Account account = accountDAO.getById(userId);
         return account.getRole();

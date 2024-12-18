@@ -4,3 +4,8 @@ ADMIN_Account_ID    USER_NAME   PASSWORD    CONTACT PREFERENCES IS_ACTIVE
 3	Charlie	password3	charlie@example.com	History	true
 4	Diana	password4	diana@example.com	Biographies	true
 5	Eve	password5	eve@example.com	Mystery Novels	true
+3	Alice	password1	alice@example.com	Tech Books	true
+4	Bob	password2	bob@example.com	Science Fiction	true
+5	Charlie	password3	charlie@example.com	History	true
+6	Diana	password4	diana@example.com	Biographies	true
+7	Eve	password5	eve@example.com	Mystery Novels	true
