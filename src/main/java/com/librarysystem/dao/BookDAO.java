@@ -5,12 +5,15 @@ import com.librarysystem.util.LMSFileManager;
 import com.librarysystem.util.ColumnName;
 
 import java.io.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class BookDAO {
 
-    private final LMSFileManager bookFileManager = new LMSFileManager("src\\main\\docs\\Books.txt");
+    private final LMSFileManager bookFileManager = new LMSFileManager("src\\main\\docs\\Book.txt");
     private static int bookIdCounter = 0;
 
     public BookDAO() {
@@ -42,25 +45,64 @@ public class BookDAO {
         bookFileManager.deleteRow(createBookMap(book));
     }
 
-    private Book createBook(Map<ColumnName, String> bookData) {
+    public List<Book> getALlBooks(){
+            List<Book> books = new ArrayList<>();
+        try{
+            List<String> rows =  bookFileManager.getAllRows();
+            for(int i = 1;i<rows.size();i++){
+                String b = rows.get(i);
+                Book book = createBookFromString(b);
+                books.add(book);
+            }
+        }catch (IOException e){
+            System.err.println(e.getMessage());
+        }
+        return books;
+    }
+
+  /*  private Book createBook(Map<ColumnName, String> bookData) {
+
         int id = Integer.parseInt(bookData.get(ColumnName.BOOK_ID));
         String title = bookData.get(ColumnName.TITLE);
         String author = bookData.get(ColumnName.AUTHOR);
         String genre = bookData.get(ColumnName.GENRE);
-        String productionDate = bookData.get(ColumnName.PRODUCTION_DATE);
-        boolean isAvailable = Boolean.parseBoolean(bookData.get(ColumnName.IS_AVAILABLE));
-        return new Book(id, title, author, genre, productionDate, isAvailable);
-    }
+        LocalDate production = LocalDate.parse(bookData.get(ColumnName.PRODUCTION_DATE));
+        String isAvailable = bookData.get(ColumnName.IS_AVAILABLE);
+        Book book = new Book();
+        book.setTitle(title);
+        book.setStatus(isAvailable);
+        book.setAuthor(author);
+        book.setCategory(genre);
+        book.setProductionDate(production);
+        book.setBookId(id);
+        return book;
+    }*/
 
     private Map<ColumnName, String> createBookMap(Book book) {
         Map<ColumnName, String> bookMap = new TreeMap<>();
         bookMap.put(ColumnName.BOOK_ID, String.valueOf(book.getId()));
         bookMap.put(ColumnName.TITLE, book.getTitle());
         bookMap.put(ColumnName.AUTHOR, book.getAuthor());
+        bookMap.put(ColumnName.AMOUNT,String.valueOf(book.getAmount()));
         bookMap.put(ColumnName.GENRE, book.getCategory());
-        bookMap.put(ColumnName.PRODUCTION_DATE, String.valueOf(book.getProductionDate()));
-        bookMap.put(ColumnName.IS_AVAILABLE, String.valueOf(book.getStatus()));
+        bookMap.put(ColumnName.PRODUCTION_DATE,String.valueOf(book.getProductionDate()));
+        bookMap.put(ColumnName.IS_AVAILABLE, book.getStatus());
         return bookMap;
+    }
+
+    private Book createBookFromString(String row){
+        String[] details = row.split("\t");
+        Book book = new Book();
+        book.setBookId(Integer.parseInt(details[0]));
+        book.setTitle(details[1]);
+        book.setAuthor(details[2]);
+        book.setCategory(details[3]);
+        book.setProductionDate(LocalDate.parse(details[4]));
+//        book.setProductionDate(Date.valueOf(details[4]));
+        book.setStatus(details[5]);
+        book.setAmount(Integer.parseInt(details[6]));
+
+        return book;
     }
 
     public int generateBookId() {

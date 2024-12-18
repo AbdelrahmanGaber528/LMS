@@ -1,6 +1,6 @@
 package com.librarysystem.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Book {
 
@@ -10,26 +10,39 @@ public class Book {
     private String category;
     private String status ;
     private int amount ;
-    private Date productionDate;
+    private LocalDate productionDate;
+
     public Book(String title, String author ,String category){
         this.title = title;
         this.author = author;
         this.category = category;
         this.status = "available";
+        this.productionDate = LocalDate.now();
         this.amount++;
     }
-    public Book(int bookId, String title, String author, String category) {
+    public Book(int bookId, String title, String author, String category,int amount) {
         this.bookId = bookId;
         this.title = title;
         this.author = author;
         this.category = category;
         this.status = "available";
+        this.productionDate = LocalDate.now();
+        this.amount = amount;
+    }
+    public Book(){
+        this.productionDate = LocalDate.now();
+    }
+
+    public Book(int bookId, String title, String author, String category,String status) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.status = status;
+        this.productionDate = LocalDate.now();
         this.amount++;
     }
 
-    public Book(int id, String title, String author, String genre, String productionDate, boolean isAvailable) {
-
-    }
 
     public void setAmount(int amount) {
         this.amount = amount;
@@ -37,10 +50,6 @@ public class Book {
 
     public int getAmount() {
         return amount;
-    }
-
-    public String getBookId() {
-        return String.valueOf(this.bookId);
     }
 
     public void setBookId(int bookId) {
@@ -73,6 +82,7 @@ public class Book {
     public String getStatus(){
         return this.status;
     }
+
     public void setId(int id){
         this.bookId = id;
     }
@@ -80,11 +90,15 @@ public class Book {
         return this.bookId;
     }
 
-    public Date getProductionDate() {
+    public LocalDate getProductionDate() {
         return productionDate;
     }
 
-    public void setProductionDate(Date productionDate) {
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setProductionDate(LocalDate productionDate) {
         this.productionDate = productionDate;
     }
 

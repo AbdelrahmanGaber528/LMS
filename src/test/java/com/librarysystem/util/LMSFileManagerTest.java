@@ -34,7 +34,7 @@ public class LMSFileManagerTest {
         transactionMap.put(ColumnName.BOOK_TITLE, "Welcome");
         transactionMap.put(ColumnName.PATRON_ACCOUNT_ID, "3");
         transactionMap.put(ColumnName.LIBRARIAN_ACCOUNT_ID, "9");
-        transactionMap.put(ColumnName.DATE_TIME, formattedDateTime);
+        transactionMap.put(ColumnName.ISSUE_DATE, formattedDateTime);
         transactionMap.put(ColumnName.TOTAL_AMOUNT, "556");
 
         return transactionMap;

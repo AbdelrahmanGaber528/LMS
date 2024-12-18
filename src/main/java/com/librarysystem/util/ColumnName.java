@@ -5,32 +5,28 @@ public enum ColumnName {
 
     // TRANSACTION
     TRANSACTION_ID,
-    BOOK_ID,//0
+    USER_ID,
     PATRON_ACCOUNT_ID,//1
     LIBRARIAN_ACCOUNT_ID,
+    BOOK_ID,//0
     ISSUE_DATE,
     RETURN_DATE,
     BOOK_TITLE ,
     TOTAL_AMOUNT,
 
     // Book continue
-    BOOK_AUTHOR,
-    BOOK_PRICE,
-    CATEGORY,
-    STATUS,
-    AMOUNT,
+
 
     // Admin
     ADMIN_Account_ID,
 
     // ACCOUNT
-    USER_ID,
     USER_NAME ,
     PASSWORD,
     ROLE,
     CONTACT,
     PREFERENCES,
     IS_ACTIVE, TITLE, AUTHOR, GENRE, PRODUCTION_DATE, IS_AVAILABLE,
-
+    AMOUNT,
 
 }

@@ -7,7 +7,7 @@ module JavaFXTutorial {
     opens com.librarysystem.controller to javafx.fxml;
     requires java.desktop;
     requires java.logging;
-
+    requires java.sql;
 
 
 }

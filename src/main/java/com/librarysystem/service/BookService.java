@@ -17,10 +17,6 @@ public class BookService {
 
     }
     public List<Book> getAllBooks(){
-        List<Book> books = new ArrayList<>();
-        for(int i = 0;i<5;i++){
-            books.add(new Book("Hello","welcome","history"));
-        }
-        return books;
+        return bookDAO.getALlBooks();
     }
 }

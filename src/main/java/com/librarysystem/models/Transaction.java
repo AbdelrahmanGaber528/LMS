@@ -7,20 +7,28 @@ import java.util.Date;
 public class Transaction {
 
     private int transactionId;
-    private int bookId;
-    private int userId;
-    private LocalDate issueDate;
-    private Date returnDate;
+    private String bookId;
+    private String userId;
+
+    public void setIssueDate(LocalDate issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    private  LocalDate issueDate;
+    private LocalDate returnDate;
     private boolean isReturned;
 
-    public Transaction(int transactionId, int bookId, int userId, Date returnDate, boolean isReturned) {
+    public Transaction(int transactionId, String bookId, String userId, LocalDate returnDate, boolean isReturned) {
         this.transactionId = transactionId;
         this.bookId = bookId;
         this.userId = userId;// Automatically set to the current date.
         this.returnDate = returnDate;
         this.isReturned = isReturned;
+        this.issueDate = LocalDate.now();
     }
-
+    public Transaction(){
+        this.issueDate = LocalDate.now();
+    }
     // Getter and Setter for transactionId
     public int getTransactionId() {
         return transactionId;
@@ -31,20 +39,21 @@ public class Transaction {
     }
 
     // Getter and Setter for bookId
-    public int getBookId() {
+    public String getBookId() {
         return bookId;
     }
 
-    public void setBookId(int bookId) {
+    public void setBookId(String bookId) {
         this.bookId = bookId;
     }
 
+
     // Getter and Setter for userId
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -55,11 +64,11 @@ public class Transaction {
 
 
     // Getter and Setter for returnDate
-    public Date getReturnDate() {
+    public LocalDate getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(Date returnDate) {
+    public void setReturnDate(LocalDate returnDate) {
         this.returnDate = returnDate;
     }
 
