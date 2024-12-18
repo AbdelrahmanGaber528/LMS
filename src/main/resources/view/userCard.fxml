@@ -12,7 +12,7 @@
     <center>
         <VBox alignment="CENTER" minHeight="300.0" minWidth="50.0" prefHeight="247.0" prefWidth="214.0" spacing="15" style="-fx-background-color: #ffffff; -fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 20;">
             <!-- Image for the user -->
-            <ImageView fx:id="userImage" fitHeight="100.0" fitWidth="100.0" preserveRatio="true">
+            <ImageView fx:id="userImage" fitHeight="100.0" fitWidth="100.0" preserveRatio="true">   
                 <image>
                     <Image url="@../images/profile.png" />
                 </image>
