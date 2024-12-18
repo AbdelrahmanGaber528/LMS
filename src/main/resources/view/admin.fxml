@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/admin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysystem.controller.AdminController">
+<BorderPane minHeight="700.0" minWidth="1000.0" prefHeight="500.0" prefWidth="800.0" stylesheets="@../css/admin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysystem.controller.AdminController">
     <!-- Sidebar -->
     <left>
         <VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="182.0" spacing="10" styleClass="sidebar" BorderPane.alignment="CENTER">
@@ -56,7 +56,7 @@
                         <Font size="26.0" />
                      </font>
                      <TilePane.margin>
-                        <Insets bottom="50.0" left="240.0" right="50.0" top="20.0" />
+                        <Insets bottom="50.0" left="350.0" right="50.0" top="20.0" />
                      </TilePane.margin>
                   </Label>
                </children></TilePane>

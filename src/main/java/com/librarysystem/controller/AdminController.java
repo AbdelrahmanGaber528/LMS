@@ -8,8 +8,6 @@ import com.librarysystem.service.BookService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -44,21 +42,25 @@ public class AdminController{
     }
 
     @FXML
-    public void loadUsers(){
+    public void loadUsers() {
         userTilePane.getChildren().clear();
         List<Account> accounts = new AccountService().getAllUsers();
-        for(Account account : accounts){
+        for (Account account : accounts) {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/userCard.fxml"));
                 Node userCard = loader.load();
+
+                // Set user details and pass the TilePane reference
                 AccountCardController controller = loader.getController();
-                controller.setUserDetails(account);
+                controller.setUserDetails(account, userTilePane);
+
                 userTilePane.getChildren().add(userCard);
-            }catch (Exception e){
+            } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
         }
     }
+
 
     @FXML
     public void loadProfile(){
@@ -81,6 +83,11 @@ public class AdminController{
                 System.err.println(e.getMessage());
             }
         }
+    }
+    @FXML
+    public void handleDetails(ActionEvent event){
+        userTilePane.getChildren().clear();
+
     }
 
     @FXML

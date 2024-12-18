@@ -1,46 +1,74 @@
 package com.librarysystem.models;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
+import java.time.*;
+import java.util.Date;
 
 public class Transaction {
 
-    private int transactionId = 0;
-    private final String patronId;
-    private final String librarianId;
-    private int totalAmount ;
-    private final LocalDateTime transactionTime;
-    private String transactionType; // "Borrow" or "Return"
+    private int transactionId;
+    private int bookId;
+    private int userId;
+    private LocalDate issueDate;
+    private Date returnDate;
+    private boolean isReturned;
 
-    public Transaction(String patronId, String librarianId, int totalAmount) {
-        this.patronId = patronId;
-        this.librarianId = librarianId;
-        this.totalAmount = totalAmount;
-        this.transactionTime = LocalDateTime.now();
-    }
-    public Transaction(int transactionId,String patronId, String librarianId, int totalAmount){
+    public Transaction(int transactionId, int bookId, int userId, Date returnDate, boolean isReturned) {
         this.transactionId = transactionId;
-        this.patronId = patronId;
-        this.librarianId = librarianId;
-        this.totalAmount = totalAmount;
-        this.transactionTime = LocalDateTime.now();
+        this.bookId = bookId;
+        this.userId = userId;// Automatically set to the current date.
+        this.returnDate = returnDate;
+        this.isReturned = isReturned;
     }
 
-    public void setTransactionId(int id ){
-        this.transactionId = id;
+    // Getter and Setter for transactionId
+    public int getTransactionId() {
+        return transactionId;
     }
-    public String getTransactionId() { return String.valueOf(this.transactionId); }
 
-    public int getTotalAmount(){ return this.totalAmount; }
-    public void setTotalAmount(int totalAmount){ this.totalAmount = totalAmount;}
-
-    public String getTransactionTime() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        return transactionTime.format(formatter);
+    public void setTransactionId(int transactionId) {
+        this.transactionId = transactionId;
     }
-    public String getTransactionType() { return transactionType; }
-    public void setTransactionType(String transactionType) { this.transactionType = transactionType; }
 
-    public String getLibrarianId(){ return this.librarianId;}
-    public String getPatronId(){ return this.patronId;}
+    // Getter and Setter for bookId
+    public int getBookId() {
+        return bookId;
+    }
+
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
+
+    // Getter and Setter for userId
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    // Getter and Setter for issueDate
+    public LocalDate getIssueDate() {
+        return issueDate;
+    }
+
+
+    // Getter and Setter for returnDate
+    public Date getReturnDate() {
+        return returnDate;
+    }
+
+    public void setReturnDate(Date returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    // Getter and Setter for isReturned
+    public boolean isReturned() {
+        return isReturned;
+    }
+
+    public void setReturned(boolean returned) {
+        isReturned = returned;
+    }
 }
