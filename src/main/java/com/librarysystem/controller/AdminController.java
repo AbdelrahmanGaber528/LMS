@@ -1,17 +1,32 @@
 package com.librarysystem.controller;
 
+import com.librarysystem.service.AdminService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
 import java.util.Objects;
 
 public class AdminController{
 
+    private final AdminService adminService = new AdminService();
 
+    @FXML
+    private Label  userName_message;
+
+    @FXML
+    private TilePane bookTilePane;
+
+    @FXML
+    public void handleDashBoard(ActionEvent event){
+
+    }
     @FXML
     public  void handleLogout(ActionEvent event) {
         try{
