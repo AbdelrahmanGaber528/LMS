@@ -36,11 +36,15 @@ public class LoginController {
     }
 
     @FXML
+    public void initialize(){
+        usernameField.setText("Abdelrahman");
+        passwordField.setText("0000");
+    }
+
+    @FXML
     public void handleLoginButton(ActionEvent event) {
         String userName = usernameField.getText().trim();
         String password = passwordField.getText().trim();
-        usernameField.setText("Mohammed");
-        passwordField.setText("0000");
         if (userName.isEmpty()) {
             errorLabel.setText("Please input UserName");
             errorLabel.setVisible(true);
@@ -65,7 +69,6 @@ public class LoginController {
         }
         errorLabel.setVisible(true);
     }
-
 
     private void loadRoleSpecificWindow(String role) {
         try {

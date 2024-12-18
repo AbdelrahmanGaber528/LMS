@@ -8,9 +8,12 @@ import com.librarysystem.service.BookService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
@@ -22,12 +25,22 @@ public class AdminController{
     private final AdminService adminService = new AdminService();
 
     @FXML
+    private Label userName_message;
+
+    @FXML
+    private Label title;
+    @FXML
     private TilePane userTilePane;
 
     private final BookService bookService = new BookService();
 
     @FXML
     public void initialize(){
+        setDetails("Admin");
+    }
+
+    public void setDetails(String name){
+        this.userName_message.setText("Welcome : "+name);
     }
 
     @FXML
@@ -45,6 +58,12 @@ public class AdminController{
                 System.err.println(e.getMessage());
             }
         }
+    }
+
+    @FXML
+    public void loadProfile(){
+        userTilePane.getChildren().clear();
+        userTilePane.getChildren().add(title);
     }
 
     @FXML

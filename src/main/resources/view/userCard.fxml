@@ -2,24 +2,29 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="30.0" prefWidth="185.0" xmlns="http://javafx.com/javafx/22-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysystem.controller.AccountCardController">
+<BorderPane prefHeight="350.0" prefWidth="213.0" xmlns="http://javafx.com/javafx/22-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.librarysystem.controller.AccountCardController" stylesheets="@../css/admin.css">
     <center>
-        <VBox alignment="CENTER" prefHeight="350.0" prefWidth="213.0" spacing="15" style="-fx-background-color: #f4f4f4; -fx-border-color: #cccccc; -fx-border-radius: 5; -fx-padding: 10;">
-            <!-- Image for the book -->
-            <ImageView fx:id="userImage" fitHeight="100.0" fitWidth="80.0" preserveRatio="true" />
+        <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #ffffff; -fx-border-color: #dcdcdc; -fx-border-width: 1; -fx-border-radius: 10; -fx-padding: 20;">
+            <!-- Image for the user -->
+            <ImageView fx:id="userImage" fitHeight="100.0" fitWidth="100.0" preserveRatio="true">
+                <image>
+                    <Image url="@../images/profile.png" />
+                </image>
+            </ImageView>
 
-            <!-- Book details -->
-            <Label fx:id="accountId" style="-fx-font-size: 17px;" />
-            <Label fx:id="userName" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
-            <Label fx:id="role" style="-fx-font-size: 14px;" />
+            <!-- User details -->
+            <Label fx:id="accountId" style="-fx-font-size: 14px; -fx-text-fill: #6c757d;" />
+            <Label fx:id="userName" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #343a40;" />
+            <Label fx:id="role" style="-fx-font-size: 16px; -fx-text-fill: #007bff;" />
 
-            <!-- Button for details -->
-            <Button fx:id="viewDetailsButton" text="View Details" />
-            <Button fx:id="deleteUser" text="Delete"/>
+            <!-- Buttons -->
+            <Button fx:id="viewDetailsButton" text="View Details" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;" />
+            <Button fx:id="deleteUser" text="Delete" style="-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 5;" />
         </VBox>
     </center>
 </BorderPane>
