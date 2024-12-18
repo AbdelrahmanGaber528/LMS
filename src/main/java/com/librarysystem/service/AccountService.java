@@ -1,10 +1,7 @@
 package com.librarysystem.service;
 
 import com.librarysystem.dao.AccountDAO;
-import com.librarysystem.dao.AdminDAO;
 import com.librarysystem.models.Account;
-import com.librarysystem.models.Admin;
-import com.librarysystem.models.User;
 
 import java.util.List;
 
@@ -65,10 +62,6 @@ public class AccountService {
         } else {
             System.err.println("Account not found for user ID: " + userId);
         }
-    }
-
-    public void updateAccount(Account account){
-       accountDAO.updateAccount(account);
     }
 
 }

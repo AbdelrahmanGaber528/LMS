@@ -3,11 +3,10 @@ package com.librarysystem.service;
 import com.librarysystem.dao.AdminDAO;
 import com.librarysystem.models.Admin;
 import com.librarysystem.models.Book;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminService {
+public class AdminService implements UserActions{
 
     private final AdminDAO adminDAO;
 
@@ -15,25 +14,47 @@ public class AdminService {
         adminDAO = new AdminDAO();
     }
 
-    private boolean isFound(Admin admin){
+    private boolean isFound(String id){
         List<Admin> adminList = adminDAO.getAllAdmins();
         for(Admin admin1 : adminList){
-            if(admin1.getAdminId().equalsIgnoreCase(admin.getAdminId()))
+            if(admin1.getAdminId().equalsIgnoreCase(id))
                 return true;
         }
         return false;
     }
 
-    public void updateContact(Admin admin) {
-        if(isFound(admin))
+    public void updateContact(String adminId , String newContact) {
+        if(isFound(adminId))
         {
+            Admin admin = getAdminById(adminId);
+            admin.setContact(newContact);
             adminDAO.updateAdmin(admin);
         }
     }
 
-    public void updateUserNamePassword(Admin admin){
-       if(isFound(admin))
-           adminDAO.updateAdmin(admin);
+    public void updateUserNamePassword(String id , String newUserName){
+      if(isFound(id)){
+          Admin admin = getAdminById(id);
+          admin.getAccount().setUserName(newUserName);
+          adminDAO.updateAdmin(admin);
+      }
+    }
+
+    public void updatePassword(String id,String newPassword){
+        if(isFound(id)){
+            Admin admin = getAdminById(id);
+            admin.getAccount().setPassword(newPassword);
+            adminDAO.updateAdmin(admin);
+        }
+    }
+
+    public void updatePreferences(String adminId , String newPreferences) {
+        if(isFound(adminId))
+        {
+            Admin admin = getAdminById(adminId);
+            admin.setPreferences(newPreferences);
+            adminDAO.updateAdmin(admin);
+        }
     }
 
     public Admin getAdminById(String id){
@@ -57,13 +78,6 @@ public class AdminService {
                 adminList.add(admin);
         }
         return adminList;
-    }
-
-    public void updatePreferences(Admin admin) {
-        if(isFound(admin))
-        {
-            adminDAO.updateAdmin(admin);
-        }
     }
 
     public List<Admin> getAllAdmins(){

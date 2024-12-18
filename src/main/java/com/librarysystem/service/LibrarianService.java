@@ -5,27 +5,47 @@ import com.librarysystem.models.Librarian;
 
 import java.util.List;
 
-public class LibrarianService{
+public class LibrarianService implements UserActions{
 
-    private final LibrarianDAO librarianDAO = new LibrarianDAO();
+    private final LibrarianDAO librarianDAO;
 
-    public void updateContact(Librarian librarian) {
-            if(isFound(librarian))
-                librarianDAO.updateLibrarianAccount(librarian);
+    public LibrarianService(){
+        librarianDAO = new LibrarianDAO();
     }
 
-    public void updatePreferences(Librarian librarian) {
-        if(isFound(librarian))
-            librarianDAO.updateLibrarianAccount(librarian);
-    }
-
-    public boolean isFound(Librarian librarian){
+    private boolean isFound(String id){
         List<Librarian> librarians = librarianDAO.getAllLibrarians();
         for(Librarian librarian1 : librarians){
-            if(librarian1.getLibrarianId().equalsIgnoreCase(librarian.getLibrarianId()))
+            if(librarian1.getLibrarianId().equalsIgnoreCase(id))
                 return true;
         }
         return false;
     }
 
+    @Override
+    public void updateContact(String id, String newContact) {
+        if(isFound(id)){
+            Librarian librarian = getLibrarianById(id);
+            librarian.setContact(newContact);
+            librarianDAO.updateLibrarianAccount(librarian);
+        }
+    }
+
+    @Override
+    public void updatePreferences(String id, String newPreferences) {
+        if(isFound(id)){
+            Librarian librarian = getLibrarianById(id);
+            librarian.setPreferences(newPreferences);
+            librarianDAO.updateLibrarianAccount(librarian);
+        }
+    }
+
+    private Librarian getLibrarianById(String id ){
+        List<Librarian> librarians = librarianDAO.getAllLibrarians();
+        for(Librarian librarian1 : librarians){
+            if(librarian1.getLibrarianId().equalsIgnoreCase(id))
+                return librarian1;
+        }
+        return null;
+    }
 }
