@@ -4,6 +4,7 @@
 
 .login-logo-container{
     -fx-background-color: linear-gradient(to bottom,rgb(124, 65, 3), #925500);
+    -fx-background-color: linear-gradient(to bottom,#262525, #262A56);
     -fx-alignment:center;
 }
 .login-logo-container Text{
@@ -16,13 +17,13 @@
 }
 
 /*  Login form styles */
-.login-form-containter{
+.login-form-container{
     -fx-spacing : 15;
     -fx-alignment:top_left;
 }
-.login-form-containter Label{
+.login-form-container Label{
     -fx-font-size: 1.1em;
-    -fx-text-fill: #704700;
+    -fx-text-fill: #4a6ca2;
     -fx-font-weight:bold;
 }
 .input-login{
@@ -31,16 +32,16 @@
     -fx-font-size: 1.2em;
 }
 
-.login-form-containter Button{
-    -fx-background-color: #584830;
+.login-form-container Button{
+    -fx-background-color: #2b2f5d;
     -fx-text-fill :#FFFFFF;
     -fx-pref-height:30;
     -fx-font-size:1.2em;
 }
 
-.login-form-containter Button:hover{
+.login-form-container Button:hover{
     -fx-cursor: hand;
-    -fx-background-color: #715124;
+    -fx-background-color: #3b3f6d;
 }
 .error-label{
     -fx-text-fill :#FF0000;

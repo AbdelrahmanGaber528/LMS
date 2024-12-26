@@ -10,20 +10,17 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400" prefWidth="600.0" styleClass="login-container" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.LoginController">
-   <children>
+<AnchorPane prefHeight="400" prefWidth="600.0" styleClass="login-container" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/22-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.LoginController">
       <VBox prefHeight="400.0" prefWidth="210.0" styleClass="login-logo-container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
-               <image>
+
                   <Image url="@../images/library.png" />
-               </image>
+
             </ImageView>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Library System" />
-         </children>
       </VBox>
-      <VBox layoutX="229.0" layoutY="38.0" prefHeight="350.0" prefWidth="350.0" styleClass="login-form-containter" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
-         <children>
+      <VBox layoutX="229.0" layoutY="38.0" prefHeight="350.0" prefWidth="350.0" styleClass="login-form-container" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+
             <Label fx:id="username_label" text="USERNAME">
                <VBox.margin>
                   <Insets left="68.0" top="50.0" />
@@ -50,7 +47,5 @@
                   <Insets left="115.0" />
                </VBox.margin>
             </Label>
-         </children>
       </VBox>
-   </children>
 </AnchorPane>
