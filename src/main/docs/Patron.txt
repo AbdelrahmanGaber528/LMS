@@ -1,6 +1,1 @@
 PATRON_ACCOUNT_ID   USER_NAME   PASSWORD    CONTACT PREFERENCES IS_ACTIVE
-6	Frank	password1	frank@example.com	Fantasy Books	true
-7	Grace	password2	grace@example.com	Romance Novels	true
-8	Hank	password3	hank@example.com	Adventure	true
-9	Ivy	password4	ivy@example.com	Self-Help	true
-10	Jack	password5	jack@example.com	Science Books	true
