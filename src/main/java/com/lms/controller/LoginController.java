@@ -44,11 +44,11 @@ public class LoginController {
         String password = pass_input.getText().trim();
 
         if (userName.isEmpty()) {
-            error_label.setText("Please input UserName");
+            error_label.setText("Error : Please input UserName");
             error_label.setVisible(true);
             return;
         } else if (password.isEmpty()) {
-            error_label.setText("Please input Password");
+            error_label.setText("Error : Please input Password");
             error_label.setVisible(true);
             return;
         }
@@ -60,7 +60,7 @@ public class LoginController {
             error_label.setStyle("-fx-text-fill: green;");
             loadRoleSpecificWindow(loginService.getRole(user.getAccountID()));
         } else {
-            error_label.setText("Invalid Account");
+            error_label.setText("Error : Invalid Account");
             error_label.setStyle("-fx-text-fill: red;");
         }
         error_label.setVisible(true);
