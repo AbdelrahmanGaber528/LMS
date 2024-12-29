@@ -6,8 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.util.Objects;
 
 public class AdminMenuController {
@@ -22,6 +22,14 @@ public class AdminMenuController {
     public Button profile_id;
     @FXML
     public Button logout_id;
+    @FXML
+    public Text name_of_admin;
+
+    @FXML
+    public void handleProfile(){
+
+    }
+
 
     @FXML
     public  void handleLogout(ActionEvent event) {

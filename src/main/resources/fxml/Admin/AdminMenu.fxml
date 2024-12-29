@@ -23,7 +23,7 @@
                         <Insets left="5.0" />
                      </VBox.margin>
                   </ImageView>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" fx:id="name_of_admin">
                      <VBox.margin>
                         <Insets left="5.0" top="2.0" />
                      </VBox.margin>
@@ -62,7 +62,7 @@
                </graphic>
             </Button>
             <Line endX="120.0" />
-            <Button fx:id="profile_id" mnemonicParsing="false" styleClass="alt_menu_btn" text="Profile">
+            <Button fx:id="profile_id" mnemonicParsing="false" styleClass="alt_menu_btn" text="Profile" onAction="#handleProfile">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 
