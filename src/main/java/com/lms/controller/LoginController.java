@@ -1,6 +1,7 @@
 package com.lms.controller;
 
 import com.lms.models.Account;
+import com.lms.models.Model;
 import com.lms.service.LoginService;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,7 +59,7 @@ public class LoginController {
         if (user != null) {
             error_label.setText("Login successful!");
             error_label.setStyle("-fx-text-fill: green;");
-            loadRoleSpecificWindow(loginService.getRole(user.getAccountID()));
+            loadRoleWindow(loginService.getRole(user.getAccountID()));
         } else {
             error_label.setText("Error : Invalid Account");
             error_label.setStyle("-fx-text-fill: red;");
@@ -66,26 +67,14 @@ public class LoginController {
         error_label.setVisible(true);
     }
 
-    private void loadRoleSpecificWindow(String role) {
+    private void loadRoleWindow(String role) {
         try {
-            String fxmlPath = switch (role) {
-                case "Admin" -> "/fxml/Admin/admin.fxml";
-                case "Librarian" -> "/fxml/Librarian/librarian.fxml";
-                case "Patron" -> "/fxml/Patron/patron.fxml";
+            switch (role) {
+                case "Admin" -> Model.getInstance().getViewFactory().showAdminWindow();
+                case "Patron" -> Model.getInstance().getViewFactory().showPatronWindow();
+                case "Librarian" -> Model.getInstance().getViewFactory().showLibrarianWindow();
                 default -> throw new IllegalArgumentException("Unknown role: " + role);
-            };
-
-            // Load the new FXML
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(fxmlPath)));
-            Scene scene = new Scene(root);
-
-            // Get the current stage
-            Stage stage = (Stage) login_btn.getScene().getWindow();
-            stage.setResizable(false);
-            stage.setTitle("Library Management System - " + role);
-            stage.setScene(scene);
-            stage.centerOnScreen();
-
+            }
         } catch (Exception e) {
             error_label.setText("Error loading the window");
             error_label.setVisible(true);

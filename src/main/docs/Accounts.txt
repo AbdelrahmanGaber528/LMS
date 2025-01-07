@@ -1,2 +1,7 @@
 USER_ID USER_NAME   PASSWORD    ROLE    IS_ACTIVE
 1	Abdelrahman	00000	Admin	true
+2	Laura	password1	Librarian	true
+3	Mark	password2	Librarian	true
+4	Nancy	password3	Librarian	true
+5	Oscar	password4	Librarian	true
+6	Paul	password5	Librarian	true

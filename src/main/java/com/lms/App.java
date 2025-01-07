@@ -1,5 +1,7 @@
 package com.lms;
 
+import com.lms.models.Model;
+import com.lms.view.ViewFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,15 +16,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/login.fxml")));
-        Scene scene = new Scene(root);
-        stage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/images/bookIcon.png"))));
-        stage.setTitle("Library Management System");
-        stage.initStyle(StageStyle.DECORATED);
-        stage.setScene(scene);
-        stage.setResizable(false);
-        stage.show();
-
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
 }
