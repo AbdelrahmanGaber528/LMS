@@ -1,10 +1,10 @@
 package com.lms.controller.Admin;
-import com.lms.service.Admin.AdminDashboardService;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
 public class AdminDashboardController implements Initializable{
@@ -18,7 +18,7 @@ public class AdminDashboardController implements Initializable{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+            login_date.setText(LocalDateTime.now().toString());
     }
 
 

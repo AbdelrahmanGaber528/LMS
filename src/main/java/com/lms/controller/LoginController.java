@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class LoginController {
 
@@ -27,8 +28,8 @@ public class LoginController {
 
     @FXML
     public void initialize(){
-        username_input.setText("Abdelrahman");
-        pass_input.setText("00000");
+//        username_input.setText("Abdelrahman");
+//        pass_input.setText("00000");
         error_label.setVisible(false);
     }
 
@@ -63,10 +64,25 @@ public class LoginController {
 
     private void loadRoleWindow(String role) {
         try {
+
+            Stage stage = (Stage) login_btn.getScene().getWindow();
+
             switch (role) {
-                case "Admin" -> Model.getInstance().getViewFactory().showAdminWindow();
-                case "Patron" -> Model.getInstance().getViewFactory().showPatronWindow();
-                case "Librarian" -> Model.getInstance().getViewFactory().showLibrarianWindow();
+
+                case "Admin" -> {
+                    Model.getInstance().getViewFactory().closeStage(stage);
+                    Model.getInstance().getViewFactory().showAdminWindow();
+                }
+                case "Patron" -> {
+                    Model.getInstance().getViewFactory().closeStage(stage);
+                    Model.getInstance().getViewFactory().showPatronWindow();
+                }
+
+                case "Librarian" -> {
+                    Model.getInstance().getViewFactory().closeStage(stage);
+                    Model.getInstance().getViewFactory().showLibrarianWindow();
+                }
+
                 default -> throw new IllegalArgumentException("Unknown role: " + role);
             }
         } catch (Exception e) {

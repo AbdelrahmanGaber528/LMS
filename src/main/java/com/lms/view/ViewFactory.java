@@ -77,6 +77,10 @@ public class ViewFactory {
     }
 
 
+    public void closeStage(Stage stage){
+        stage.close();
+    }
+
     public void showPatronWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Patron/Patron.fxml"));
         PatronController patronController = new PatronController();

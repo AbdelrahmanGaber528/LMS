@@ -3,14 +3,18 @@ package com.lms.controller.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import java.util.Objects;
 
-public class AdminMenuController {
+import java.net.URL;
+import java.util.Objects;
+import java.util.ResourceBundle;
+
+public class AdminMenuController  implements Initializable {
 
     @FXML
     public Button dashboard_id;
@@ -25,11 +29,11 @@ public class AdminMenuController {
     @FXML
     public Text name_of_admin;
 
-    @FXML
-    public void handleProfile(){
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
 
     @FXML
     public  void handleLogout(ActionEvent event) {
