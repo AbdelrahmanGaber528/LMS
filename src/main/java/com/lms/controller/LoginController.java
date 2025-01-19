@@ -4,15 +4,9 @@ import com.lms.models.Account;
 import com.lms.models.Model;
 import com.lms.service.LoginService;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.util.Objects;
 
 public class LoginController {
 

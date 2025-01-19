@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.Patron.PatronDashboardController">
+    <Text fx:id="user_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Welcome , Patron" wrappingWidth="237.97927856445312" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="30.0">
+      <font>
+         <Font size="32.0" />
+      </font></Text>
+    <Label fx:id="login_date" styleClass="date_label" text="Today: " AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="27.0" />
+    <Text layoutX="19.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Latest Transactions" AnchorPane.bottomAnchor="476.79999942779546" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="729.0" AnchorPane.topAnchor="258.4000005722046" />
+    <ListView fx:id="transaction_listview" layoutX="19.0" layoutY="291.0" prefHeight="443.0" prefWidth="838.0" styleClass="transaction_listView" />
+</AnchorPane>
