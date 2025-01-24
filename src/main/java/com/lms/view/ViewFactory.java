@@ -2,10 +2,7 @@ package com.lms.view;
 
 import com.lms.controller.Admin.AdminController;
 import com.lms.controller.Librarian.LibrarianController;
-import com.lms.controller.LoginController;
 import com.lms.controller.Patron.PatronController;
-import com.lms.models.Account;
-import com.lms.service.LoginService;
 import com.lms.util.AdminMenuOptions;
 import com.lms.util.LibrarianMenuOptions;
 import com.lms.util.PatronMenuOptions;
@@ -66,7 +63,7 @@ public class ViewFactory {
     public AnchorPane getAccountsView(){
         if(accountsView == null){
             try{
-                accountsView = new FXMLLoader(getClass().getResource("/fxml/Admin/accounts.fxml")).load();
+                accountsView = new FXMLLoader(getClass().getResource("/fxml/Admin/AdminAccounts.fxml")).load();
             }catch(Exception e){
                 System.err.println(e.getMessage());
             }
@@ -77,7 +74,7 @@ public class ViewFactory {
     public AnchorPane getBooksView(){
         if(booksView == null){
             try{
-                booksView = new FXMLLoader(getClass().getResource("/fxml/Admin/books.fxml")).load();
+                booksView = new FXMLLoader(getClass().getResource("/fxml/Admin/AdminBooks.fxml")).load();
             }catch(Exception e){
                 System.err.println(e.getMessage());
             }
