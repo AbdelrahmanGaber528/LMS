@@ -71,7 +71,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="logout_id" mnemonicParsing="false" styleClass="alt_menu_btn" text="LogOut" onAction="#handleLogout">
+            <Button fx:id="logout_id" mnemonicParsing="false" styleClass="alt_menu_btn" text="LogOut">
                <graphic>
                   <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
 

@@ -16,14 +16,14 @@
          <Font size="16.0" />
       </font>
    </Text>
-   <VBox layoutX="626.0" layoutY="131.2" prefHeight="238.0" prefWidth="236.0" styleClass="summary_view" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="135.0">
+   <VBox layoutX="313.0" layoutY="135.2" prefHeight="238.0" prefWidth="823.0" styleClass="summary_view" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="135.0">
       <Label styleClass="account_amount" text="No.Accounts:" />
       <Label fx:id="accounts_num" layoutX="20.0" layoutY="15.0" styleClass="expense_amount" text="No.Accounts:">
          <VBox.margin>
             <Insets left="10.0" top="5.0" />
          </VBox.margin>
       </Label>
-      <Line endX="100.0" startX="-100.0">
+      <Line endX="697.2928466796875" endY="1.0561714172363281" startX="-100.0">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>
@@ -38,7 +38,7 @@
             <Insets left="10.0" top="5.0" />
          </VBox.margin>
       </Label>
-      <Line endX="100.0" layoutX="111.0" layoutY="61.0" startX="-100.0">
+      <Line endX="693.2928466796875" endY="0.8705452084541321" layoutX="111.0" layoutY="61.0" startX="-100.0">
          <VBox.margin>
             <Insets top="10.0" />
          </VBox.margin>

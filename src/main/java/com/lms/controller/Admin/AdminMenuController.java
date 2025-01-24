@@ -1,21 +1,24 @@
 package com.lms.controller.Admin;
 
+import com.lms.models.Model;
+import com.lms.util.AdminMenuOptions;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
+
 
 import java.net.URL;
-import java.util.Objects;
+
 import java.util.ResourceBundle;
 
 public class AdminMenuController  implements Initializable {
 
+    @FXML
+    public Text name_of_admin;
     @FXML
     public Button dashboard_id;
     @FXML
@@ -26,31 +29,39 @@ public class AdminMenuController  implements Initializable {
     public Button profile_id;
     @FXML
     public Button logout_id;
-    @FXML
-    public Text name_of_admin;
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+            addListeners();
     }
 
-    @FXML
-    public  void handleLogout(ActionEvent event) {
-        try{
-            // Load the new FXML
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/login.fxml")));
-            Scene scene = new Scene(root);
+    private void addListeners(){
+        dashboard_id.setOnAction(_ -> onDashboard());
+        books_id.setOnAction(_ -> onBooks());
+        profile_id.setOnAction(_ -> onProfile());
+        accounts_id.setOnAction(_ -> onAccounts());
+        logout_id.setOnAction(this::onLogout);
+    }
 
-            // Get the current stage
-            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            currentStage.setResizable(false);
-            currentStage.setScene(scene);
-            currentStage.centerOnScreen();
+    private void onBooks(){
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.BOOKS);
+    }
 
-        } catch (Exception e) {
-            System.err.println("Error in logout :"+e.getMessage());
-        }
+    private void onDashboard(){
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.DASHBOARD);
+    }
+
+    private void onProfile(){
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.PROFILE);
+    }
+
+    private void onAccounts(){
+        Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.ACCOUNTS);
+    }
+
+    public  void onLogout(ActionEvent event) {
+        Model.getInstance().getViewFactory().handleLogout(event);
     }
 
 }

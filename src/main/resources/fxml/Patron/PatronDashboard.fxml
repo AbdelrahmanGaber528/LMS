@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -12,6 +11,4 @@
          <Font size="32.0" />
       </font></Text>
     <Label fx:id="login_date" styleClass="date_label" text="Today: " AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="27.0" />
-    <Text layoutX="19.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Latest Transactions" AnchorPane.bottomAnchor="476.79999942779546" AnchorPane.leftAnchor="19.0" AnchorPane.rightAnchor="729.0" AnchorPane.topAnchor="258.4000005722046" />
-    <ListView fx:id="transaction_listview" layoutX="19.0" layoutY="291.0" prefHeight="443.0" prefWidth="838.0" styleClass="transaction_listView" />
 </AnchorPane>

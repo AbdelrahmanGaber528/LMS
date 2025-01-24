@@ -2,8 +2,10 @@
 
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns="http://javafx.com/javafx"
+<BorderPane fx:id="admin_parent"
+            xmlns="http://javafx.com/javafx/22-ea"
             xmlns:fx="http://javafx.com/fxml">
+
     <left>
         <fx:include source="AdminMenu.fxml"/>
     </left>
@@ -13,3 +15,4 @@
     </center>
 
 </BorderPane>
+

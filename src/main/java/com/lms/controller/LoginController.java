@@ -28,8 +28,8 @@ public class LoginController {
 
     @FXML
     public void initialize(){
-//        username_input.setText("Abdelrahman");
-//        pass_input.setText("00000");
+        username_input.setText("Abdelrahman");
+        pass_input.setText("00000");
         error_label.setVisible(false);
     }
 
@@ -49,7 +49,7 @@ public class LoginController {
             return;
         }
 
-        Account user = loginService.login(userName, password);
+         Account user = loginService.login(userName, password);
 
         if (user != null) {
             error_label.setText("Login successful!");

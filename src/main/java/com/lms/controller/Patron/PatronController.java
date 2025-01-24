@@ -1,31 +1,28 @@
 package com.lms.controller.Patron;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-import java.util.Objects;
+import com.lms.models.Model;
+import javafx.fxml.Initializable;
+import javafx.scene.layout.BorderPane;
+import java.net.URL;
+import com.lms.util.PatronMenuOptions;
+import java.util.ResourceBundle;
 
-public class PatronController  {
+public class PatronController  implements Initializable {
 
-    @FXML
-    public  void handleLogout(ActionEvent event) {
-        try{
-            // Load the new FXML
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/login.fxml")));
-            Scene scene = new Scene(root);
+    public BorderPane patron_parent;
 
-            // Get the current stage
-            Stage currentStage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
-            currentStage.setResizable(false);
-            currentStage.setScene(scene);
-            currentStage.centerOnScreen();
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        } catch (Exception e) {
-            System.err.println("Error in logout :"+e.getMessage());
-        }
+        Model.getInstance().getViewFactory().getPatronSelectedItemMenu().addListener((observable , oldVal , newVal)->{
+            switch (newVal){
+                case PatronMenuOptions.BOOKS -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronBooksView());
+                case PatronMenuOptions.PROFILE -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronProfileView());
+                case PatronMenuOptions.TRANSACTIONS -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronTransactionsView());
+                default -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronDashboardView());
+            }
+        } );
+
     }
 
 }
