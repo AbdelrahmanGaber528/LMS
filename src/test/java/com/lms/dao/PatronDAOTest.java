@@ -2,7 +2,8 @@ package com.lms.dao;
 
 import com.lms.dao.Patron.PatronDAO;
 import com.lms.models.Patron.Patron;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
 
 import java.util.List;
 

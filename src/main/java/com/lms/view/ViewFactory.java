@@ -3,6 +3,7 @@ package com.lms.view;
 import com.lms.controller.Admin.AdminController;
 import com.lms.controller.Librarian.LibrarianController;
 import com.lms.controller.Patron.PatronController;
+import com.lms.models.Book.Book;
 import com.lms.util.AdminMenuOptions;
 import com.lms.util.LibrarianMenuOptions;
 import com.lms.util.PatronMenuOptions;
@@ -12,10 +13,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+
+import java.io.IOException;
 import java.util.Objects;
 
 public class ViewFactory {
@@ -27,7 +33,8 @@ public class ViewFactory {
     private AnchorPane dashBoardView;
     private AnchorPane accountsView;
     private AnchorPane booksView;
-
+    private BorderPane adminView;
+    private VBox menu;
     // Patron View
     private final ObjectProperty<PatronMenuOptions> patronSelectedItemMenu;
     private AnchorPane patronTransactions;
@@ -39,11 +46,39 @@ public class ViewFactory {
     private final ObjectProperty<LibrarianMenuOptions> librarianSelectedItemMenu;
 
 
+    // Book
+    private AnchorPane addBookView;
+    private AnchorPane editBookView;
     public ViewFactory(){
         this.adminSelectedMenuItem = new SimpleObjectProperty<>();
         this.patronSelectedItemMenu = new SimpleObjectProperty<>();
         this.librarianSelectedItemMenu = new SimpleObjectProperty<>();
     }
+
+
+    // Admin
+
+    public VBox getMenu(){
+        if(menu == null){
+            try{
+                menu = new FXMLLoader(getClass().getResource("/fxml/Admin/AdminMenu.fxml")).load();
+            }catch(Exception e){
+                System.err.println(e.getMessage());
+            }
+        }
+        return menu;
+    }
+    public BorderPane getAdminView(){
+        if(adminView == null){
+            try{
+                adminView = new FXMLLoader(getClass().getResource("/fxml/Admin/Admin.fxml")).load();
+            }catch(Exception e){
+                System.err.println(e.getMessage());
+            }
+        }
+        return adminView;
+    }
+
 
     public ObjectProperty<AdminMenuOptions> getAdminSelectedMenuItem() {
         return adminSelectedMenuItem;
@@ -63,7 +98,7 @@ public class ViewFactory {
     public AnchorPane getAccountsView(){
         if(accountsView == null){
             try{
-                accountsView = new FXMLLoader(getClass().getResource("/fxml/Admin/AdminAccounts.fxml")).load();
+                accountsView = new FXMLLoader(getClass().getResource("/fxml/Admin/Accounts.fxml")).load();
             }catch(Exception e){
                 System.err.println(e.getMessage());
             }
@@ -74,7 +109,7 @@ public class ViewFactory {
     public AnchorPane getBooksView(){
         if(booksView == null){
             try{
-                booksView = new FXMLLoader(getClass().getResource("/fxml/Admin/AdminBooks.fxml")).load();
+                booksView = new FXMLLoader(getClass().getResource("/fxml/Admin/Books.fxml")).load();
             }catch(Exception e){
                 System.err.println(e.getMessage());
             }
@@ -182,6 +217,88 @@ public class ViewFactory {
     }
 
 
+    // Book View
+
+
+    public AnchorPane getAddBookView(){
+
+        if(addBookView == null){
+            try{
+                addBookView = new FXMLLoader(getClass().getResource("/fxml/Book/AddBook.fxml")).load();
+            }catch (IOException e){
+                System.err.println(e.getMessage());
+            }
+        }
+        return addBookView;
+    }
+
+    public AnchorPane getEditBookView(){
+        if(editBookView == null){
+            try{
+                editBookView = new FXMLLoader(getClass().getResource("/fxml/Book/editBook.fxml")).load();
+            }catch (IOException e){
+                System.err.println(e.getMessage());
+            }
+        }
+        return editBookView;
+    }
+    public AnchorPane getBookView(Book book){
+
+        AnchorPane newBook = null ;
+        try{
+            newBook = new FXMLLoader(getClass().getResource("/fxml/Book/BookCell.fxml")).load();
+
+            Label idLabel = (Label) newBook.lookup("#bookID");
+            Label titleLabel = (Label) newBook.lookup("#bookTitle");
+            Label authorLabel = (Label) newBook.lookup("#bookAuthor");
+            Label categoryLabel = (Label) newBook.lookup("#bookCategory");
+            Label availableLabel = (Label) newBook.lookup("#bookStatus");
+            Label amuontLabel = (Label) newBook.lookup("#bookAmount");
+            Label productionLabel = (Label) newBook.lookup("#bookProduction");
+
+            idLabel.setText(String.valueOf(book.getBookId()));
+            titleLabel.setText(book.getTitle());
+            authorLabel.setText(book.getAuthor());
+            categoryLabel.setText(book.getCategory());
+            availableLabel.setText(Boolean.parseBoolean(book.getStatus()) ? "Yes" : "No");
+            amuontLabel.setText(String.valueOf(book.getAmount()));
+            productionLabel.setText(String.valueOf(book.getProductionDate()));
+
+        }catch(IOException e){
+            System.err.println(e.getMessage());
+        }
+        return newBook;
+    }
+
+    public AnchorPane getHeaderBook(){
+
+        AnchorPane header = null;
+        try{
+            header = new FXMLLoader(getClass().getResource("/fxml/Book/BookHeader.fxml")).load();
+
+            Label idLabel = (Label) header.lookup("#bookID");
+            Label titleLabel = (Label) header.lookup("#bookTitle");
+            Label authorLabel = (Label) header.lookup("#bookAuthor");
+            Label categoryLabel = (Label) header.lookup("#bookCategory");
+            Label availableLabel = (Label) header.lookup("#bookStatus");
+            Label amuontLabel = (Label) header.lookup("#bookAmount");
+            Label productionLabel = (Label) header.lookup("#bookProduction");
+
+            idLabel.setText("Id");
+            titleLabel.setText("Title");
+            authorLabel.setText("Author");
+            categoryLabel.setText("Category");
+            availableLabel.setText("Available");
+            amuontLabel.setText("Amount");
+            productionLabel.setText("Production");
+
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        return header;
+    }
+
+
     public void showLoginWindow(){
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
@@ -201,6 +318,8 @@ public class ViewFactory {
         stage.show();
 
     }
+
+
 
     private void createStage(FXMLLoader loader){
 

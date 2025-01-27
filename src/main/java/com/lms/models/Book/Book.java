@@ -9,7 +9,7 @@ public class Book {
     private String author;
     private String category;
     private String status = "Available";
-    private int amount = 0 ;
+    private String amount = "0" ;
     private LocalDate productionDate;
 
 
@@ -20,14 +20,13 @@ public class Book {
         this.author = author;
         this.category = category;
         this.productionDate = LocalDate.now();
-        this.amount++;
     }
 
     public Book(){
         this.productionDate = LocalDate.now();
     }
 
-    public Book( String title, String author, String category,int amount) {
+    public Book( String title, String author, String category,String amount) {
         this.title = title;
         this.author = author;
         this.category = category;
@@ -39,11 +38,11 @@ public class Book {
 
     // getters and setters
 
-    public void setAmount(int amount) {
+    public void setAmount(String amount) {
         this.amount = amount;
     }
 
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 

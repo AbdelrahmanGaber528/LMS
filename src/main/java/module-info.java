@@ -1,8 +1,9 @@
 module com.lms{
-    requires javafx.controls;
+    requires javafx.base;
     requires javafx.fxml;
-    requires java.desktop;
     requires java.logging;
+    requires javafx.graphics;
+    requires javafx.controls;
 
     opens com.lms to javafx.fxml;
     exports com.lms ;
@@ -17,5 +18,6 @@ module com.lms{
     exports com.lms.models.Patron;
     exports com.lms.models.Book;
     exports com.lms.models.Transaction;
+    exports com.lms.controller.Book;
 
 }

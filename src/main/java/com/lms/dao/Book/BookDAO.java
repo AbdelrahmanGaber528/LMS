@@ -81,9 +81,8 @@ public class BookDAO {
         book.setAuthor(details[2]);
         book.setCategory(details[3]);
         book.setProductionDate(LocalDate.parse(details[4]));
-//        book.setProductionDate(Date.valueOf(details[4]));
         book.setStatus(details[5]);
-        book.setAmount(Integer.parseInt(details[6]));
+        book.setAmount(details[6]);
 
         return book;
     }

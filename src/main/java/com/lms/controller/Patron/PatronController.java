@@ -17,8 +17,8 @@ public class PatronController  implements Initializable {
         Model.getInstance().getViewFactory().getPatronSelectedItemMenu().addListener((observable , oldVal , newVal)->{
             switch (newVal){
                 case PatronMenuOptions.BOOKS -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronBooksView());
-                case PatronMenuOptions.PROFILE -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronProfileView());
                 case PatronMenuOptions.TRANSACTIONS -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronTransactionsView());
+                case PatronMenuOptions.PROFILE -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronProfileView());
                 default -> patron_parent.setCenter(Model.getInstance().getViewFactory().getPatronDashboardView());
             }
         } );

@@ -4,5 +4,6 @@ public enum AdminMenuOptions {
     DASHBOARD,
     ACCOUNTS,
     BOOKS,
-    PROFILE
+    PROFILE,
+    ADD_NEW_BOOK,
 }

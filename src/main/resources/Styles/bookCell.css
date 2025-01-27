@@ -1,0 +1,33 @@
+/* Style for the book cell (AnchorPane) */
+.book-cell {
+    -fx-background-color: #ffffff; /* White background */
+    -fx-border-radius: 7px; 
+}
+
+/* Style for the labels inside the cell */
+.cell-label {
+    -fx-text-fill: #2b3e50; /* Dark blue text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-font-family: "Arial"; /* Font family */
+    -fx-font-weight: bold; /* Bold text */
+}
+
+/* Style for the buttons inside the cell */
+.cell-button {
+    -fx-background-color: #2d7bca; /* Dark blue background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 12px; /* Font size */
+    -fx-font-family: "Arial"; /* Font family */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-padding: 5px 10px; /* Padding inside the button */
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
+
+.cell-button:hover {
+    -fx-background-color: #0056b3; /* Brighter blue on hover */
+}
+
+.cell-button:pressed {
+    -fx-background-color: #001f5c; /* Darker blue when pressed */
+}

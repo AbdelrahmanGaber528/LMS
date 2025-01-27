@@ -2,7 +2,7 @@ package com.lms.dao;
 
 import com.lms.dao.Admin.AdminDAO;
 import com.lms.models.Admin.Admin;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 

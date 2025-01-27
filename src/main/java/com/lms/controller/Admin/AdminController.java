@@ -16,10 +16,11 @@ public class AdminController implements Initializable {
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().addListener((observable , oldVal , newVal)->{
             switch (newVal){
                 case AdminMenuOptions.BOOKS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getBooksView());
-                case AdminMenuOptions.PROFILE-> admin_parent.setCenter(Model.getInstance().getViewFactory().getProfileView());
                 case AdminMenuOptions.ACCOUNTS -> admin_parent.setCenter(Model.getInstance().getViewFactory().getAccountsView());
+                case AdminMenuOptions.PROFILE-> admin_parent.setCenter(Model.getInstance().getViewFactory().getProfileView());
                 default -> admin_parent.setCenter(Model.getInstance().getViewFactory().getDashBoardView());
             }
         } );
     }
+
 }
