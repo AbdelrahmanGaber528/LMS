@@ -11,6 +11,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+
 public class EditBookController {
 
     public TextField title_id;
@@ -21,7 +23,7 @@ public class EditBookController {
     public TextField status_id;
     public Button save_btn;
     public Button cancel_btn;
-    private int id;
+    private String id;
 
     @FXML
     public void initialize() {
@@ -46,7 +48,7 @@ public class EditBookController {
     }
 
     public void setId(String id){
-        this.id = Integer.parseInt(id);
+        this.id = id;
     }
 
     public void setAmount_id(String amount_id) {
@@ -84,7 +86,7 @@ public class EditBookController {
         editedBook.setCategory(categoryChoice_id.getValue());
         editedBook.setStatus(bookStatus);
         editedBook.setBookId(id);
-
+        editedBook.setProductionDate(LocalDate.parse(production_id.getText()));
         EditBookService.editBook(editedBook);
 
         closeWindow();

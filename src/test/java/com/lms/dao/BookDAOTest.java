@@ -14,11 +14,11 @@ public class BookDAOTest {
 //        testBook.setTitle("hello");
 //        testBook.setAmount("50");
 //        testBook.setCategory("History");
-//        testBook.setAuthor("Harryr");
+//        testBook.setAuthor("Harry");
 //        testBook.setProductionDate(LocalDate.EPOCH);
-//        testBook.setStatus("Avaliable");
+//        testBook.setStatus("Available");
 //        bookDAO.addNewBook(testBook);
-//    }
+////    }
     @Test
     public void testInsertMultipleBooks() {
         BookDAO bookDAO = new BookDAO();

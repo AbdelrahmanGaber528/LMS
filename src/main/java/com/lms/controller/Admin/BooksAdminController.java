@@ -10,16 +10,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class BooksAdminController implements Initializable {
 
@@ -40,12 +36,11 @@ public class BooksAdminController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        ObservableList<String> categories = FXCollections.observableArrayList(
-                "Name", "ID" , "Date"
+        ObservableList<String> sort_list = FXCollections.observableArrayList(
+                "Name", "ID", "Date", "Category", "Author"
         );
 
-        sort_books.setItems(categories);
-
+        sort_books.setItems(sort_list);
         sort_books.setValue("ID");
 
         getAllBooks();
@@ -54,10 +49,35 @@ public class BooksAdminController implements Initializable {
     }
 
 
+    private void onSearch(){
+        String keyWord = searchbar.getText(0,5);
+    }
+
 
     private  void addListener(){
         newBook_btn.setOnAction(_ -> onAddBook());
+        search_btn.setOnAction(_ -> onSearch());
     }
+
+    private Book getBookFromAnchorPane(AnchorPane pane1) {
+
+        Book book = new Book();
+        Label id =(Label) pane1.lookup("#bookID");
+        book.setBookId(id.getText());
+        Label title = (Label) pane1.lookup("#bookTitle");
+        book.setTitle(title.getText());
+        Label author = (Label) pane1.lookup("#bookAuthor");
+        book.setAuthor(author.getText());
+        Label status = (Label) pane1.lookup("#bookStatus");
+        book.setStatus(status.getText());
+        Label amount = (Label) pane1.lookup("#bookAmount");
+        book.setAmount(amount.getText());
+        Label category = (Label) pane1.lookup("#bookCategory");
+        book.setCategory(category.getText());
+
+        return book;
+    }
+
 
     private void onAddBook() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Book/AddBook.fxml"));
@@ -74,7 +94,6 @@ public class BooksAdminController implements Initializable {
         }
     }
 
-
     private void getAllBooks() {
         List<Book> books = GetAllBooks.getAllBooks();
         booksList.add(getHeader());
@@ -90,6 +109,7 @@ public class BooksAdminController implements Initializable {
     private AnchorPane getHeader(){
         return Model.getInstance().getViewFactory().getHeaderBook();
     }
+
 
 
 }

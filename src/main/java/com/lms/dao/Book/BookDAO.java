@@ -31,7 +31,7 @@ public class BookDAO {
     public void addNewBook(Book book) {
         try {
             int newId = generateBookId();
-            book.setBookId(newId);
+            book.setBookId(String.valueOf(newId));
             bookFileManager.insertRow(createBookMap(book));
         } catch (IOException e) {
             System.err.println("Problem in adding book: " + e.getMessage());
@@ -76,7 +76,7 @@ public class BookDAO {
     private Book createBookFromString(String row){
         String[] details = row.split("\t");
         Book book = new Book();
-        book.setBookId(Integer.parseInt(details[0]));
+        book.setBookId(details[0]);
         book.setTitle(details[1]);
         book.setAuthor(details[2]);
         book.setCategory(details[3]);

@@ -47,8 +47,8 @@ public class Book {
     }
 
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public void setBookId(String bookId) {
+        this.bookId = Integer.parseInt(bookId);
     }
 
     public int getBookId() {
