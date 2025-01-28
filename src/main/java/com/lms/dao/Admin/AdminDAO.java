@@ -19,7 +19,7 @@ public class AdminDAO {
 
     public AdminDAO(){
         adminAccount = new AccountDAO();
-        adminFileManager = new LMSFileManager("src\\main\\docs\\Admin.txt");
+        adminFileManager = new LMSFileManager("src/main/docs/Admin.txt");
     }
 
     public List<Admin> getAllAdmins()   {

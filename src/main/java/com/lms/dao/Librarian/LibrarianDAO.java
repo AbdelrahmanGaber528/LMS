@@ -18,7 +18,7 @@ public  class LibrarianDAO {
    private final AccountDAO librarianAccount;
 
    public LibrarianDAO(){
-       librarianFileManager = new LMSFileManager("src\\main\\docs\\Librarian.txt");
+       librarianFileManager = new LMSFileManager("src/main/docs/Librarian.txt");
        librarianAccount =   new AccountDAO();
    }
 

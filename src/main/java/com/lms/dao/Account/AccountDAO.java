@@ -17,8 +17,8 @@
         private static int idCounter = 0;
 
         public AccountDAO() {
-            accountFileManager  = new LMSFileManager("src\\main\\docs\\Accounts.txt");
-            File file = new File("src\\main\\docs\\idCounter.txt");
+            accountFileManager  = new LMSFileManager("src/main/docs/Accounts.txt");
+            File file = new File("src/main/docs/idCounter.txt");
             if (file.exists()) {
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     idCounter = Integer.parseInt(reader.readLine().trim());

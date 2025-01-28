@@ -17,8 +17,8 @@ public class BookDAO {
     private static int bookIdCounter = 0;
 
     public BookDAO() {
-        bookFileManager  = new LMSFileManager("src\\main\\docs\\Book.txt");
-        File file = new File("src\\main\\docs\\bookIdCounter.txt");
+        bookFileManager  = new LMSFileManager("src/main/docs/Book.txt");
+        File file = new File("src/main/docs/bookIdCounter.txt");
         if (file.exists()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 bookIdCounter = Integer.parseInt(reader.readLine().trim());

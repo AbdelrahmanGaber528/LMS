@@ -15,7 +15,7 @@ public class PatronDAO {
      private final AccountDAO patronAccount;
 
     public PatronDAO(){
-        patronFileManager = new LMSFileManager("src\\main\\docs\\Patron.txt");
+        patronFileManager = new LMSFileManager("src/main/docs/Patron.txt");
         patronAccount = new AccountDAO();
     }
 

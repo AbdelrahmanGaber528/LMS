@@ -15,8 +15,8 @@ public class TransactionDAO {
     private static int transactionIdCounter = 0;
 
     public TransactionDAO() {
-        transactionFileManager  = new LMSFileManager("src\\main\\docs\\Transaction.txt");
-        File file = new File("src\\main\\docs\\bookIdCounter.txt");
+        transactionFileManager  = new LMSFileManager("src/main/docs/Transaction.txt");
+        File file = new File("src/main/docs/bookIdCounter.txt");
         if (file.exists()) {
             try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                 transactionIdCounter = Integer.parseInt(reader.readLine().trim());
