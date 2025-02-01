@@ -89,7 +89,7 @@ public class BookDAO {
 
     public int generateBookId() {
         bookIdCounter++;
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src\\main\\docs\\bookIdCounter.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/docs/bookIdCounter.txt"))) {
             writer.write(String.valueOf(bookIdCounter));
         } catch (IOException e) {
             System.err.println("Can't write new book ID to file: " + e.getMessage());

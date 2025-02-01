@@ -111,7 +111,7 @@
         }
         public  int generateId() {
             idCounter++;
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter("src\\main\\docs\\idCounter.txt"))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/docs/idCounter.txt"))) {
                 writer.write(String.valueOf(idCounter));
             } catch (IOException e) {
                 System.err.println("Can't write new id to file: " + e.getMessage());

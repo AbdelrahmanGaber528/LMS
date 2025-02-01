@@ -67,7 +67,7 @@ public class TransactionDAO {
 
     private int generateTransactionId() {
         transactionIdCounter++;
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src\\main\\docs\\idCounter.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/docs/idCounter.txt"))) {
             writer.write(String.valueOf(transactionIdCounter));
         } catch (IOException e) {
             System.err.println("Can't write new transaction ID to file: " + e.getMessage());

@@ -36,7 +36,7 @@
             <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
             <Button fx:id="dashboard_id" mnemonicParsing="false" text="DashBoard">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
 
                         <Image url="@../../images/home.png" />
 
@@ -45,7 +45,7 @@
             </Button>
             <Button fx:id="books_id" mnemonicParsing="false" text="Books">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
 
                         <Image url="@../../images/book-admin.png" />
 
@@ -54,7 +54,7 @@
             </Button>
             <Button fx:id="accounts_id" mnemonicParsing="false" text="Accounts">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
 
                         <Image url="@../../images/users.png" />
 
@@ -64,7 +64,7 @@
             <Line endX="120.0" />
             <Button fx:id="profile_id" mnemonicParsing="false" styleClass="alt_menu_btn" text="Profile" >
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
 
                         <Image url="@../../images/profile.png" />
 
@@ -73,7 +73,7 @@
             </Button>
             <Button fx:id="logout_id" mnemonicParsing="false" styleClass="alt_menu_btn" text="LogOut">
                <graphic>
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="20.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
 
                         <Image url="@../../images/logout.png" />
 

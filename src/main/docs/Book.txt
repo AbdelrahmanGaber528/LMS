@@ -1,4 +1,5 @@
 BOOK_ID BOOK_NAME   BOOK_AUTHOR CATEGORY    PRODUCTION_DATE STATUS  AMOUNT
 1	Test	George Orwell	Fiction	2025-01-27	No	7
-2	Dock	George Orwell	Fiction	1400-01-27	No	7
 3	Well	George Orwell	Fiction	1400-01-27	No	7
+5	To Kill a Mockingbird	Harper Lee	History	1960-07-11	Available	7
+4	1984	George Orwell	Fiction	1949-06-08	Available	7

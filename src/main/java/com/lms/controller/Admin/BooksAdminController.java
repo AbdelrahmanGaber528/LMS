@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -29,55 +30,107 @@ public class BooksAdminController implements Initializable {
     public ListView<AnchorPane> books_list_admin;
 
     @FXML
-    public ChoiceBox<String> sort_books;
+    public ChoiceBox<String> books_Choice;
 
-    private final ObservableList<AnchorPane> booksList = FXCollections.observableArrayList();
+    public final ObservableList<AnchorPane> booksList = FXCollections.observableArrayList();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         ObservableList<String> sort_list = FXCollections.observableArrayList(
-                "Name", "ID", "Date", "Category", "Author"
+                "Title", "ID", "Category", "Author"
         );
 
-        sort_books.setItems(sort_list);
-        sort_books.setValue("ID");
+        books_Choice.setItems(sort_list);
+        books_Choice.setValue("Title");
 
         getAllBooks();
         books_list_admin.setItems(booksList);
         addListener();
     }
 
-
-    private void onSearch(){
-        String keyWord = searchbar.getText(0,5);
-    }
-
-
     private  void addListener(){
         newBook_btn.setOnAction(_ -> onAddBook());
         search_btn.setOnAction(_ -> onSearch());
     }
 
-    private Book getBookFromAnchorPane(AnchorPane pane1) {
-
-        Book book = new Book();
-        Label id =(Label) pane1.lookup("#bookID");
-        book.setBookId(id.getText());
-        Label title = (Label) pane1.lookup("#bookTitle");
-        book.setTitle(title.getText());
-        Label author = (Label) pane1.lookup("#bookAuthor");
-        book.setAuthor(author.getText());
-        Label status = (Label) pane1.lookup("#bookStatus");
-        book.setStatus(status.getText());
-        Label amount = (Label) pane1.lookup("#bookAmount");
-        book.setAmount(amount.getText());
-        Label category = (Label) pane1.lookup("#bookCategory");
-        book.setCategory(category.getText());
-
-        return book;
+    private void onSearch(){
+        String value = books_Choice.getValue();
+        switch (value){
+            case "Title" -> books_list_admin.setItems(searchListByTitle(searchbar.getText(),booksList));
+            case "ID" -> books_list_admin.setItems(searchListByID(searchbar.getText(),booksList));
+            case "Author" -> books_list_admin.setItems(searchListByAuthor(searchbar.getText(),booksList));
+            case "Category" -> books_list_admin.setItems(searchListByCategory(searchbar.getText(),booksList));
+        }
     }
 
+    private ObservableList<AnchorPane> searchListByAuthor(String searchWord, ObservableList<AnchorPane> listOfThings) {
+        if (searchWord == null || searchWord.trim().isEmpty()) {
+            return listOfThings;
+        }
+        ObservableList<AnchorPane> resultList = FXCollections.observableArrayList();
+        resultList.add(getHeader());
+        for (AnchorPane anchorPane : listOfThings) {
+            Node node = anchorPane.lookup("#bookAuthor");
+            if (node instanceof Label label) {
+                if (label.getText().toLowerCase().contains(searchWord.toLowerCase())) {
+                    resultList.add(anchorPane);
+                }
+            }
+        }
+        return resultList;
+    }
+
+    private ObservableList<AnchorPane> searchListByCategory(String searchWord, ObservableList<AnchorPane> listOfThings) {
+        if (searchWord == null || searchWord.trim().isEmpty()) {
+            return listOfThings;
+        }
+        ObservableList<AnchorPane> resultList = FXCollections.observableArrayList();
+        resultList.add(getHeader());
+        for (AnchorPane anchorPane : listOfThings) {
+            Node node = anchorPane.lookup("#bookCategory");
+            if (node instanceof Label label) {
+                if (label.getText().toLowerCase().contains(searchWord.toLowerCase())) {
+                    resultList.add(anchorPane);
+                }
+            }
+        }
+        return resultList;
+    }
+
+    private ObservableList<AnchorPane> searchListByID(String searchWord, ObservableList<AnchorPane> listOfThings) {
+        if (searchWord == null || searchWord.trim().isEmpty()) {
+            return listOfThings;
+        }
+        ObservableList<AnchorPane> resultList = FXCollections.observableArrayList();
+        resultList.add(getHeader());
+        for (AnchorPane anchorPane : listOfThings) {
+            Node node = anchorPane.lookup("#bookID");
+            if (node instanceof Label label) {
+                if (label.getText().toLowerCase().contains(searchWord.toLowerCase())) {
+                    resultList.add(anchorPane);
+                }
+            }
+        }
+        return resultList;
+    }
+
+    private ObservableList<AnchorPane> searchListByTitle(String searchWord , ObservableList<AnchorPane>  listOfThings){
+        if (searchWord == null || searchWord.trim().isEmpty()) {
+            return listOfThings;
+        }
+        ObservableList<AnchorPane> resultList = FXCollections.observableArrayList();
+        resultList.add(getHeader());
+        for (AnchorPane anchorPane : listOfThings) {
+            Node node = anchorPane.lookup("#bookTitle");
+            if (node instanceof Label label) {
+                if (label.getText().toLowerCase().contains(searchWord.toLowerCase())) {
+                    resultList.add(anchorPane);
+                }
+            }
+        }
+        return resultList;
+    }
 
     private void onAddBook() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Book/AddBook.fxml"));
@@ -109,7 +162,5 @@ public class BooksAdminController implements Initializable {
     private AnchorPane getHeader(){
         return Model.getInstance().getViewFactory().getHeaderBook();
     }
-
-
 
 }

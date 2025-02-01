@@ -37,7 +37,7 @@ public class BookDAOTest {
         book2.setTitle("To Kill a Mockingbird");
         book2.setAmount("7");
 
-        book2.setCategory("Fiction");
+        book2.setCategory("History");
         book2.setAuthor("Harper Lee");
         book2.setProductionDate(LocalDate.of(1960, 7, 11));
         book2.setStatus("Available");
@@ -45,7 +45,7 @@ public class BookDAOTest {
         Book book3 = new Book();
         book3.setTitle("The Great Gatsby");
         book3.setAmount("7");
-        book3.setCategory("Fiction");
+        book3.setCategory("Non Fiction");
         book3.setAuthor("F. Scott Fitzgerald");
         book3.setProductionDate(LocalDate.of(1925, 4, 10));
         book3.setStatus("Available");
