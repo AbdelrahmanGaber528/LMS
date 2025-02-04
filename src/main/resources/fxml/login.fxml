@@ -10,6 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="400" prefWidth="600.0" styleClass="login-container" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.LoginController">
       <VBox prefHeight="400.0" prefWidth="210.0" styleClass="login-logo-container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
@@ -33,10 +34,10 @@
                <VBox.margin>
                   <Insets left="68.0" />
                </VBox.margin></Label>
-            <TextField fx:id="pass_input" maxWidth="200.0" styleClass="input-login">
+            <PasswordField fx:id="pass_input" maxWidth="200.0" styleClass="input-login">
                <VBox.margin>
                   <Insets left="68.0" />
-               </VBox.margin></TextField>
+               </VBox.margin></PasswordField>
             <Button fx:id="login_btn" mnemonicParsing="false" onAction="#handleLoginButton" text="Login">
                <VBox.margin>
                   <Insets left="140.0" top="20.0" />

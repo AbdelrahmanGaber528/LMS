@@ -7,28 +7,28 @@ import java.util.List;
 
 public class AccountService {
 
-    private final AccountDAO accountDAO ;
+    private static final AccountDAO accountDAO = new AccountDAO(); ;
 
     public AccountService(){
-        accountDAO = new AccountDAO();
+
     }
 
-    public List<Account> getAllUsers(){
+    public static List<Account> getAllUsers(){
         return accountDAO.getAllAccounts();
     }
 
-    public void deleteAccount(String id ){
+    public static void deleteAccount(String id ){
         accountDAO.deleteAccount(getAccount(id));
     }
 
-    private  Account getAccount(String id ){
+    private static Account getAccount(String id){
         for(Account account : accountDAO.getAllAccounts())
             if(account.getAccountID().equalsIgnoreCase(id))
                 return account;
         return null;
     }
 
-    public void activateAccount(String userId) {
+    public static void activateAccount(String userId) {
         Account account = accountDAO.getById(userId);
         if (account != null) {
             account.setIsActive(true);
@@ -39,7 +39,7 @@ public class AccountService {
         }
     }
 
-    public void deactivateAccount(String userId) {
+    public static void deactivateAccount(String userId) {
         Account account = accountDAO.getById(userId);
         if (account != null) {
             account.setIsActive(false);
@@ -50,11 +50,11 @@ public class AccountService {
         }
     }
 
-    public void updateAccount(Account account){
+    public static void updateAccount(Account account){
         accountDAO.updateAccount(account);
     }
 
-    public void resetPassword(String userId, String newPassword) {
+    public static void resetPassword(String userId, String newPassword) {
         Account account = accountDAO.getById(userId);
         if (account != null) {
             account.setPassword(newPassword);

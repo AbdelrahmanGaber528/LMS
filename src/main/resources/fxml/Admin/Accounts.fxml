@@ -19,7 +19,7 @@
     <Button fx:id="search_btn" layoutX="378.0" layoutY="134.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="add-button" text="Search" />
     <Button fx:id="newAccount_btn" layoutX="713.0" layoutY="135.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.0" styleClass="add-button" text="New Account" />
     <ListView fx:id="accounts_list" layoutX="7.0" layoutY="195.0" prefHeight="548.0" prefWidth="838.0" />
-    <ChoiceBox fx:id="sort_accounts" layoutX="519.0" layoutY="134.0" prefWidth="150.0" stylesheets="@../../Styles/choice-box-main.css" />
+    <ChoiceBox fx:id="accounts_choice" layoutX="519.0" layoutY="134.0" prefWidth="150.0" stylesheets="@../../Styles/choice-box-main.css" />
    <stylesheets>
       <URL value="@../../Styles/accounts.css" />
       <URL value="@../../Styles/books_admin.css" />

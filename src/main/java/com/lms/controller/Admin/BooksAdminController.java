@@ -27,7 +27,7 @@ public class BooksAdminController implements Initializable {
     @FXML
     public  Button newBook_btn;
     @FXML
-    public ListView<AnchorPane> books_list_admin;
+    public  ListView<AnchorPane> books_list_admin;
 
     @FXML
     public ChoiceBox<String> books_Choice;

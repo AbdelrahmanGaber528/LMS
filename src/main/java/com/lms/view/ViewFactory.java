@@ -3,10 +3,12 @@ package com.lms.view;
 import com.lms.controller.Admin.AdminController;
 import com.lms.controller.Librarian.LibrarianController;
 import com.lms.controller.Patron.PatronController;
+import com.lms.models.Account;
 import com.lms.models.Book.Book;
 import com.lms.util.AdminMenuOptions;
 import com.lms.util.LibrarianMenuOptions;
 import com.lms.util.PatronMenuOptions;
+
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
@@ -54,7 +56,6 @@ public class ViewFactory {
         this.patronSelectedItemMenu = new SimpleObjectProperty<>();
         this.librarianSelectedItemMenu = new SimpleObjectProperty<>();
     }
-
 
     // Admin
 
@@ -138,7 +139,51 @@ public class ViewFactory {
     }
 
 
+    // Accounts View
 
+    public AnchorPane getAccountCell(Account account){
+
+        AnchorPane newAccount = null ;
+
+        try{
+            newAccount = new FXMLLoader(getClass().getResource("/fxml/Account/AccountCell.fxml")).load();
+
+            Label idLabel = (Label) newAccount.lookup("#accountID");
+            Label nameLabel = (Label) newAccount.lookup("#accountName");
+            Label roleLabel = (Label) newAccount.lookup("#accountRole");
+            Label activeLabel = (Label) newAccount.lookup("#accountStatus");
+
+            idLabel.setText(String.valueOf(account.getAccountID()));
+            nameLabel.setText(account.getUserName());
+            roleLabel.setText(account.getRole());
+            activeLabel.setText(account.isActive());
+
+        }catch(IOException e){
+            System.err.println(e.getMessage());
+        }
+        return newAccount;
+    }
+
+    public AnchorPane getAccountHeader(){
+        AnchorPane header = null;
+        try{
+            header = new FXMLLoader(getClass().getResource("/fxml/Account/AccountHeader.fxml")).load();
+
+            Label idLabel = (Label) header.lookup("#accountID");
+            Label nameLabel = (Label) header.lookup("#accountName");
+            Label roleLabel = (Label) header.lookup("#accountRole");
+            Label activeLabel = (Label) header.lookup("#accountStatus");
+
+            idLabel.setText("ID");
+            nameLabel.setText("Name");
+            roleLabel.setText("Role");
+            activeLabel.setText("Active");
+
+        }catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        return header;
+    }
 
     // Patron View
 
@@ -220,28 +265,6 @@ public class ViewFactory {
     // Book View
 
 
-    public AnchorPane getAddBookView(){
-
-        if(addBookView == null){
-            try{
-                addBookView = new FXMLLoader(getClass().getResource("/fxml/Book/AddBook.fxml")).load();
-            }catch (IOException e){
-                System.err.println(e.getMessage());
-            }
-        }
-        return addBookView;
-    }
-
-    public AnchorPane getEditBookView(){
-        if(editBookView == null){
-            try{
-                editBookView = new FXMLLoader(getClass().getResource("/fxml/Book/editBook.fxml")).load();
-            }catch (IOException e){
-                System.err.println(e.getMessage());
-            }
-        }
-        return editBookView;
-    }
     public AnchorPane getBookView(Book book){
 
         AnchorPane newBook = null ;

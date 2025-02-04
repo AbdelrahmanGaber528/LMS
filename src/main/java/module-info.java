@@ -4,6 +4,7 @@ module com.lms{
     requires java.logging;
     requires javafx.graphics;
     requires javafx.controls;
+    requires jdk.sctp;
 
     opens com.lms to javafx.fxml;
     exports com.lms ;

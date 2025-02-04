@@ -1,4 +1,5 @@
 package com.lms.controller.Admin;
+
 import com.lms.service.Admin.AdminDashboardService;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -25,6 +26,11 @@ public class AdminDashboardController implements Initializable{
             patrons_acc_num.setText(adminDashboardService.getNumberOPatronAccounts());
             librarian_acc_num.setText(adminDashboardService.getNumberOLibrarianAccounts());
     }
+
+    public void setUser_name(String name){
+        user_name.setText(name);
+    }
+
 
 
 }

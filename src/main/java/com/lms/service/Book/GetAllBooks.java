@@ -8,4 +8,5 @@ public class GetAllBooks {
     public static List<Book> getAllBooks(){
        return BookService.getBookDAO().getALlBooks();
     }
+
 }

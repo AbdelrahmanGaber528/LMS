@@ -1,6 +1,5 @@
 package com.lms.controller.Book;
 
-import com.lms.controller.Admin.BooksAdminController;
 import com.lms.service.Book.DeleteBookService;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -34,7 +33,6 @@ public class BookCellController implements Initializable {
 
     public Button delete_book;
 
-    private final BooksAdminController booksAdminController = new BooksAdminController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -45,7 +43,6 @@ public class BookCellController implements Initializable {
         delete_book.setOnAction(_ -> deleteBook());
         edit_book.setOnAction(_ ->editBook());
     }
-
 
     private void deleteBook(){
         DeleteBookService.deleteBook(Integer.parseInt(bookID.getText()));

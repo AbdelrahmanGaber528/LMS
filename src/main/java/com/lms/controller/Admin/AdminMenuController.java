@@ -50,6 +50,9 @@ public class AdminMenuController  implements Initializable {
         logout_id.setOnAction(this::onLogout);
     }
 
+    public void setName_of_admin(String name){
+        name_of_admin.setText(name);
+    }
     private void onBooks(){
         Model.getInstance().getViewFactory().getAdminSelectedMenuItem().set(AdminMenuOptions.BOOKS);
     }

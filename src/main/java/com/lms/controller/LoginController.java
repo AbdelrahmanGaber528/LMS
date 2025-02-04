@@ -1,11 +1,15 @@
 package com.lms.controller;
 
+import com.lms.controller.Admin.AdminController;
+import com.lms.controller.Admin.AdminDashboardController;
+import com.lms.controller.Admin.AdminMenuController;
 import com.lms.models.Account;
 import com.lms.models.Model;
 import com.lms.service.LoginService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -18,7 +22,7 @@ public class LoginController {
     @FXML
     public Label pass_label;
     @FXML
-    public TextField pass_input;
+    public PasswordField pass_input;
     @FXML
     public Button login_btn;
     @FXML
@@ -28,7 +32,7 @@ public class LoginController {
 
     @FXML
     public void initialize(){
-        username_input.setText("Abdelrahman");
+        username_input.setText("Admin");
         pass_input.setText("00000");
         error_label.setVisible(false);
     }
