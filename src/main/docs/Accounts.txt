@@ -1,0 +1,3 @@
+USER_ID USER_NAME   PASSWORD    ROLE    IS_ACTIVE
+1	Admin	00000	Admin	true
+2	Frank	password1	Patron	true

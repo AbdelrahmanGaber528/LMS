@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" styleClass="main_menu_container" stylesheets="@../../Styles/AdminMenu.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.Patron.PatronMenuController">
+
+    <AnchorPane prefHeight="750.0" prefWidth="160.0" styleClass="left_container">
+
+        <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+            <ImageView fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+
+                <Image url="@../../images/admin-panel.png" />
+
+                <VBox.margin>
+                    <Insets left="5.0" />
+                </VBox.margin>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Patron" fx:id="name_of_patron">
+                <VBox.margin>
+                    <Insets left="5.0" top="2.0" />
+                </VBox.margin>
+            </Text>
+            <opaqueInsets>
+                <Insets />
+            </opaqueInsets>
+
+        </VBox>
+        <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+            <Button fx:id="dashboard_id" mnemonicParsing="false" text="DashBoard">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+
+                        <Image url="@../../images/home.png" />
+
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="books_id" mnemonicParsing="false" text="Books">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+
+                        <Image url="@../../images/book-admin.png" />
+
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="transaction_id" mnemonicParsing="false" text="Transactions">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+
+                        <Image url="@../../images/users.png" />
+
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Line endX="120.0" />
+            <Button fx:id="profile_id" mnemonicParsing="false" styleClass="alt_menu_btn" text="Profile" >
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+
+                        <Image url="@../../images/profile.png" />
+
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button fx:id="logout_id" mnemonicParsing="false" styleClass="alt_menu_btn" text="LogOut">
+                <graphic>
+                    <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+
+                        <Image url="@../../images/logout.png" />
+
+                    </ImageView>
+                </graphic>
+            </Button>
+        </VBox>
+
+    </AnchorPane>
+
+</VBox>

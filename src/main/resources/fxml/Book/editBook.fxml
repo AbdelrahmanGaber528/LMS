@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../Styles/editBook.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.Book.EditBookController">
+
+    <Label layoutX="348.0" layoutY="41.0" styleClass="form-title" text="Edit Book" textFill="#1298ff">
+        <font>
+            <Font name="Bell MT" size="43.0" />
+        </font>
+    </Label>
+    <Label layoutX="35.0" layoutY="147.0" styleClass="form-label" text="Title:" textFill="#008f9c">
+        <font>
+            <Font name="Book Antiqua" size="16.0" />
+        </font></Label>
+    <Label layoutX="33.0" layoutY="263.0" styleClass="form-label" text="Author:" textFill="#008f9c">
+        <font>
+            <Font name="Book Antiqua" size="16.0" />
+        </font></Label>
+    <Label layoutX="33.0" layoutY="412.0" styleClass="form-label" text="Category:" textFill="#008f9c">
+        <font>
+            <Font name="Book Antiqua" size="16.0" />
+        </font></Label>
+    <Label layoutX="494.0" layoutY="144.0" styleClass="form-label" text="Amount:" textFill="#008f9c">
+        <font>
+            <Font name="Book Antiqua" size="16.0" />
+        </font></Label>
+    <Label layoutX="498.0" layoutY="260.0" styleClass="form-label" text="Status:" textFill="#008f9c">
+        <font>
+            <Font name="Book Antiqua" size="16.0" />
+        </font></Label>
+    <Label layoutX="488.0" layoutY="400.0" styleClass="form-label" text="Production Date:" textFill="#008f9c">
+        <font>
+            <Font name="Book Antiqua" size="16.0" />
+        </font></Label>
+    <Button fx:id="save_btn" layoutX="319.0" layoutY="559.0" mnemonicParsing="false" opacity="0.89" prefHeight="38.0" prefWidth="92.0" styleClass="cell-button" stylesheets="@../../Styles/bookCell.css" text="Save">
+        <font>
+            <Font size="20.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor></Button>
+    <Button fx:id="cancel_btn" layoutX="496.0" layoutY="559.0" mnemonicParsing="false" opacity="0.88" prefHeight="38.0" prefWidth="92.0" styleClass="cell-button" stylesheets="@../../Styles/bookCell.css" text="Cancel">
+        <font>
+            <Font size="20.0" />
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND" />
+        </cursor></Button>
+    <TextField fx:id="title_id" depthTest="DISABLE" layoutX="146.4" layoutY="152.0" prefWidth="200.0" AnchorPane.leftAnchor="146.4" />
+    <TextField fx:id="author_id" depthTest="DISABLE" layoutX="146.4" layoutY="260.0" prefHeight="26.0" prefWidth="200.0" AnchorPane.leftAnchor="146.4" />
+    <TextField fx:id="amount_id" depthTest="DISABLE" layoutX="611.0" layoutY="140.0" prefWidth="200.0" />
+    <TextField fx:id="status_id" depthTest="DISABLE" layoutX="611.0" layoutY="256.0" prefWidth="200.0" promptText="Y/N" />
+    <TextField fx:id="production_id" depthTest="DISABLE" layoutX="617.0" layoutY="397.0" prefWidth="200.0" promptText="year-month-day" />
+    <ChoiceBox fx:id="categoryChoice_id" layoutX="152.0" layoutY="410.0" prefWidth="200.0" styleClass="form-choicebox" stylesheets="@../../Styles/choice-box.css" AnchorPane.leftAnchor="146.0" />
+</AnchorPane>

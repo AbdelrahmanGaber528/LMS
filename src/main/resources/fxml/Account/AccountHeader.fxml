@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="820.0" styleClass="book-cell" stylesheets="@../../Styles/bookCell.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" >
+    <Label fx:id="accountID" layoutX="23.0" layoutY="12.0" styleClass="cell-label" text="ID" />
+    <Label fx:id="accountName" layoutX="85.0" layoutY="12.0" styleClass="cell-label" text="Name" />
+    <Label fx:id="accountRole" layoutX="220.0" layoutY="12.0" styleClass="cell-label" text="Role" />
+    <Label fx:id="active_id" layoutX="320.0" layoutY="12.0" styleClass="cell-label" text="Active" />
+</AnchorPane>

@@ -1,0 +1,116 @@
+.dashboard{
+    -fx-background-color:#f5f4f4;   
+}
+
+.user_name{
+    -fx-font-size:2.6em;
+    -fx-font-family:"Calibri Light";
+}
+
+.date_label{
+    -fx-text-fill: #AAAAAA;
+    -fx-font-size:1.1em;
+    -fx-font-family:"Calibri Light";
+}
+
+
+.section_title{
+    -fx-font-size: 1.4em;
+    -fx-font-family: "Calibri Light";
+}
+
+
+
+.accounts_view{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10 0 0 10;
+    -fx-padding : 10 0 10 0;    
+    -fx-alignment : center;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color : #DDDDDD;
+    -fx-spacing : 10;
+}
+.account{
+    -fx-background-radius:5;
+    -fx-effect: dropshadow(three-pass-box,#AAAAAA,10,0,0,5);
+}
+
+.account VBox{
+    -fx-background-color:#FFFFFF;
+}
+
+.account Text{
+    -fx-fill:#FFFFFF;
+    -fx-font-size:1.5em;
+    -fx-font-family:"Calibri Light";
+}
+
+.account ImageView{
+    -fx-fill:#FFFFFF;   
+}
+
+.account_gradient{
+    -fx-background-color:linear-gradient(to top , #d6d8dd,#f0f2f4);
+}
+.account_balance{
+    -fx-text-fill: #004e72;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 2.3em;
+    -fx-font-weight: bold;
+}
+
+.account_number{
+    -fx-text-fill: #FFFFFF;
+    -fx-font-family: "Calibri";
+    -fx-font-size: 1.5em;
+    -fx-alignment : center;
+}
+
+.summary_view{
+    -fx-background-color: #f6f6f6;
+    -fx-padding: 5 10 5 10;
+    -fx-alignment : center_left;
+    -fx-spacing : 5;
+}
+
+.acc_summary_container{
+    -fx-padding: 10;
+    -fx-spacing : 10;
+    -fx-alignment : center_left;
+    -fx-border-radius: 10;
+    -fx-border-color:#999999;
+    -fx-border-width: 1;
+    -fx-border-style: dashed;
+}
+.acc_summary_container Line{
+    -fx-stroke:#AAAAAA;
+}
+
+.account_amount{
+    -fx-text-fill:#264aff;
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 1.5em;
+}
+
+.expense_amount{
+    -fx-text-fill:#ff0000;
+    -fx-font-family: "Calibri Light";
+    -fx-font-size: 1.2em;
+}
+
+/* Transaction view */
+
+
+.transaction_listView{
+    -fx-background-color: #eeeeee;
+    -fx-border-width: 0 0 0 0;
+    -fx-border-color:#AAAAAA;
+}
+
+.transaction_listView .scroll-bar:vertical{
+    -fx-scale-x:0;
+}
+.list-cell{
+    -fx-background-color: #f7d4a6;
+    -fx-padding : 15 0 15 0;
+}

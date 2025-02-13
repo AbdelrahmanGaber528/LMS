@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="850.0" styleClass="books_container" stylesheets="@../../Styles/books_admin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.Admin.BooksAdminController">
+    <Label layoutX="366.0" layoutY="31.0" text="Books" textFill="#00aeff">
+        <font>
+            <Font name="Bodoni MT" size="35.0" />
+        </font>
+    </Label>
+   <TextField fx:id="searchbar" layoutX="15.0" layoutY="138.0" prefHeight="29.0" prefWidth="350.0" promptText="Search" styleClass="search-bar" />
+   <Button fx:id="search_btn" layoutX="378.0" layoutY="134.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="82.0" styleClass="add-button" text="Search" />
+    <Button fx:id="newBook_btn" layoutX="721.0" layoutY="135.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="110.0" styleClass="add-button" text="New Book" />
+    <ListView fx:id="books_list_admin" layoutX="5.0" layoutY="195.0" prefHeight="550.0" prefWidth="841.0" />
+   <ChoiceBox fx:id="books_Choice" layoutX="519.0" layoutY="134.0" prefWidth="150.0" stylesheets="@../../Styles/choice-box.css" />
+</AnchorPane>

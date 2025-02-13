@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.Patron.PatronDashboardController">
+    <Text fx:id="user_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Welcome , Patron" wrappingWidth="237.97927856445312" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="55.0">
+      <font>
+         <Font size="32.0" />
+      </font></Text>
+    <Label fx:id="login_date" styleClass="date_label" text="Today: " AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="27.0" />
+</AnchorPane>

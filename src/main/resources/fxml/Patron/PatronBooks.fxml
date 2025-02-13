@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="books_container" stylesheets="@../../Styles/books_admin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.Patron.PatronBooksController">
+    <ListView fx:id="books_patron" layoutX="7.0" layoutY="128.0" prefHeight="612.0" prefWidth="837.0" />
+    <Label layoutX="369.0" layoutY="25.0" text="Books" textFill="#002a8f" AnchorPane.bottomAnchor="674.0" AnchorPane.leftAnchor="369.20000000000005" AnchorPane.rightAnchor="374.6" AnchorPane.topAnchor="25.0">
+        <font>
+            <Font name="Bodoni MT" size="41.0" />
+        </font>
+    </Label>
+</AnchorPane>

@@ -1,0 +1,2 @@
+ADMIN_Account_ID    USER_NAME   PASSWORD    CONTACT PREFERENCES IS_ACTIVE
+1	Abdelrahman	00000	alice@example.com	Tech Books	true

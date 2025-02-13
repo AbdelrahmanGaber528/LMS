@@ -1,0 +1,2 @@
+LIBRARIAN_ACCOUNT_ID    USER_NAME   PASSWORD    CONTACT PREFERENCES IS_ACTIVE
+2	Laura	password1	laura@example.com	Digital Resources	true

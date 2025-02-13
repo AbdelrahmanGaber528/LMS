@@ -1,0 +1,41 @@
+/* Style for the ChoiceBox */
+.choice-box {
+    -fx-background-color: #2569a6; /* Dark blue background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 12px; /* Font size */
+    -fx-font-family: "Arial"; /* Font family */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-padding: 5px 10px; /* Padding inside the ChoiceBox */
+    -fx-border-color: transparent; /* Remove border */
+    -fx-cursor: hand; /* Change cursor to hand on hover */
+}
+
+/* Style for the dropdown arrow */
+.choice-box .arrow {
+    -fx-background-color: white; /* Change arrow background color */
+    -fx-padding: 3px; /* Padding for the arrow */
+    -fx-shape: "M0,0 L4,0 L2,3 Z"; /* Custom arrow shape */
+    -fx-scale-x: 1.5; /* Scale the arrow size */
+    -fx-scale-y: 1.5;
+}
+
+/* Style for the popup list of the ChoiceBox */
+.choice-box-popup .list-view {
+    -fx-background-color: #2d7bca; /* Match the dropdown background */
+    -fx-control-inner-background: #2d7bca;
+    -fx-text-fill: white; /* Text color inside dropdown */
+}
+
+/* Style for the items inside the dropdown */
+.choice-box-popup .list-view .cell {
+    -fx-font-size: 12px;
+    -fx-font-family: "Arial";
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+}
+
+.choice-box-popup .list-view .cell:hover {
+    -fx-background-color: #1b5b96; /* Slightly darker blue for hover */
+}

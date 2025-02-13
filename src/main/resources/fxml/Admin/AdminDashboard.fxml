@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="dashboard" stylesheets="@../../Styles/Dashboard.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lms.controller.Admin.AdminDashboardController">
+   <Text fx:id="user_name" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="user_name" text="Welcome ,Admin" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="55.0" />
+   <Label fx:id="login_date" styleClass="date_label" text="Today: " AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="27.0" />
+   <Text layoutX="764.0" layoutY="128.0" stroke="#463030" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title" text="Summary" AnchorPane.rightAnchor="21.982810974121094" AnchorPane.topAnchor="117.40000057220459">
+      <font>
+         <Font size="16.0" />
+      </font>
+   </Text>
+   <VBox layoutX="313.0" layoutY="135.2" prefHeight="238.0" prefWidth="823.0" styleClass="summary_view" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="135.0">
+      <Label styleClass="account_amount" text="No.Accounts:" />
+      <Label fx:id="accounts_num" layoutX="20.0" layoutY="15.0" styleClass="expense_amount" text="No.Accounts:">
+         <VBox.margin>
+            <Insets left="10.0" top="5.0" />
+         </VBox.margin>
+      </Label>
+      <Line endX="697.2928466796875" endY="1.0561714172363281" startX="-100.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Line>
+      <Label layoutX="10.0" layoutY="10.0" styleClass="account_amount" text="Patron:">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="patrons_acc_num" layoutX="31.0" layoutY="47.0" styleClass="expense_amount" text="No.Patrons:">
+         <VBox.margin>
+            <Insets left="10.0" top="5.0" />
+         </VBox.margin>
+      </Label>
+      <Line endX="693.2928466796875" endY="0.8705452084541321" layoutX="111.0" layoutY="61.0" startX="-100.0">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Line>
+      <Label layoutX="10.0" layoutY="77.0" styleClass="account_amount" text="Librarian:">
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="librarian_acc_num" layoutX="31.0" layoutY="47.0" styleClass="expense_amount" text="No.Librarian:">
+         <VBox.margin>
+            <Insets left="10.0" top="5.0" />
+         </VBox.margin>
+      </Label>
+   </VBox>
+</AnchorPane>
